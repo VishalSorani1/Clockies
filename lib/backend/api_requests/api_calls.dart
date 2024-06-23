@@ -247,7 +247,7 @@ class CreateNewProjectCall {
     final ffApiRequestBody = '''
 {
   "projectName": "$projectName",
-  "clientId": "$clientId",
+  "clientId": $clientId,
   "totalHrs": "$totalHrs",
   "allowOverSpent": "$allowOverSpent",
   "allowManualTask": "$allowManualTask",
@@ -264,6 +264,29 @@ class CreateNewProjectCall {
       params: {},
       body: ffApiRequestBody,
       bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class DeleteProjectCall {
+  static Future<ApiCallResponse> call({
+    String? authToken = '',
+    int? id,
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Delete Project',
+      apiUrl: 'http://3.144.249.140:5000/api/project/$id',
+      callType: ApiCallType.DELETE,
+      headers: {
+        'Authorization': '$authToken',
+      },
+      params: {},
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,

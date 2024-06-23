@@ -73,6 +73,8 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
               await showModalBottomSheet(
                 isScrollControlled: true,
                 backgroundColor: Colors.transparent,
+                isDismissible: false,
+                enableDrag: false,
                 useSafeArea: true,
                 context: context,
                 builder: (context) {
@@ -88,6 +90,13 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                   );
                 },
               ).then((value) => safeSetState(() {}));
+
+              _model.isLoading = true;
+              setState(() {});
+              await _model.fetchProject(context);
+              setState(() {});
+              _model.isLoading = false;
+              setState(() {});
             },
             backgroundColor: FlutterFlowTheme.of(context).pinkColor,
             elevation: 8.0,

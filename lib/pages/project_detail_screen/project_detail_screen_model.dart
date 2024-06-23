@@ -130,4 +130,47 @@ class ProjectDetailScreenModel
       );
     }
   }
+
+  Future deleteProject(BuildContext context) async {
+    ApiCallResponse? deleteProjectApiResult;
+
+    deleteProjectApiResult = await DeleteProjectCall.call(
+      authToken: FFAppState().userToken,
+      id: widget.projectDetail?.id,
+    );
+
+    if ((deleteProjectApiResult.succeeded ?? true)) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            getJsonField(
+              (deleteProjectApiResult.jsonBody ?? ''),
+              r'''$.message''',
+            ).toString().toString(),
+            style: TextStyle(
+              color: FlutterFlowTheme.of(context).primaryText,
+            ),
+          ),
+          duration: const Duration(milliseconds: 4000),
+          backgroundColor: FlutterFlowTheme.of(context).success1,
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            getJsonField(
+              (deleteProjectApiResult.jsonBody ?? ''),
+              r'''$.message''',
+            ).toString().toString(),
+            style: TextStyle(
+              color: FlutterFlowTheme.of(context).primaryText,
+            ),
+          ),
+          duration: const Duration(milliseconds: 4000),
+          backgroundColor: FlutterFlowTheme.of(context).error1,
+        ),
+      );
+    }
+  }
 }

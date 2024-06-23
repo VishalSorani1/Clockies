@@ -90,10 +90,19 @@ class _AddProjectDialogWidgetState extends State<AddProjectDialogWidget> {
                                 ),
                           ),
                         ),
-                        Icon(
-                          Icons.close_rounded,
-                          color: FlutterFlowTheme.of(context).blueColor,
-                          size: 24.0,
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            Navigator.pop(context);
+                          },
+                          child: Icon(
+                            Icons.close_rounded,
+                            color: FlutterFlowTheme.of(context).blueColor,
+                            size: 24.0,
+                          ),
                         ),
                       ],
                     ),
@@ -378,20 +387,8 @@ class _AddProjectDialogWidgetState extends State<AddProjectDialogWidget> {
                             if (_model.clientDropDownValue == null) {
                               return;
                             }
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  _model.clientDropDownValue!,
-                                  style: TextStyle(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                  ),
-                                ),
-                                duration: const Duration(milliseconds: 4000),
-                                backgroundColor:
-                                    FlutterFlowTheme.of(context).secondary,
-                              ),
-                            );
+                            await _model.addProjectAPI(context);
+                            setState(() {});
                           },
                           text: FFAppConstants.save,
                           options: FFButtonOptions(

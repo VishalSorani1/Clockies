@@ -67,18 +67,6 @@ class ProjectScreenModel extends FlutterFlowModel<ProjectScreenWidget> {
     );
 
     if ((fetchProjectApiResult.succeeded ?? true)) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            'fetched',
-            style: TextStyle(
-              color: FlutterFlowTheme.of(context).primaryText,
-            ),
-          ),
-          duration: const Duration(milliseconds: 4000),
-          backgroundColor: FlutterFlowTheme.of(context).secondary,
-        ),
-      );
       allProjectList = FetchProjectsCall.projectList(
         (fetchProjectApiResult.jsonBody ?? ''),
       )!
@@ -88,18 +76,6 @@ class ProjectScreenModel extends FlutterFlowModel<ProjectScreenWidget> {
           .toList()
           .cast<ProjectModelStruct>();
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            'error',
-            style: TextStyle(
-              color: FlutterFlowTheme.of(context).primaryText,
-            ),
-          ),
-          duration: const Duration(milliseconds: 4000),
-          backgroundColor: FlutterFlowTheme.of(context).secondary,
-        ),
-      );
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
