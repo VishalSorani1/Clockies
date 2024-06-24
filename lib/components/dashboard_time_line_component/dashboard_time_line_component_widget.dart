@@ -89,7 +89,7 @@ class _DashboardTimeLineComponentWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
-                                      fontFamily: 'Roboto',
+                                      fontFamily: 'Inter',
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
@@ -109,7 +109,7 @@ class _DashboardTimeLineComponentWidgetState
                           maxLines: 2,
                           style:
                               FlutterFlowTheme.of(context).bodyLarge.override(
-                                    fontFamily: 'Roboto',
+                                    fontFamily: 'Inter',
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
@@ -131,7 +131,7 @@ class _DashboardTimeLineComponentWidgetState
                           '-',
                         ),
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
-                              fontFamily: 'Roboto',
+                              fontFamily: 'Inter',
                               fontSize: 14.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
@@ -143,7 +143,7 @@ class _DashboardTimeLineComponentWidgetState
                           '-',
                         ),
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
-                              fontFamily: 'Roboto',
+                              fontFamily: 'Inter',
                               fontSize: 14.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
@@ -173,7 +173,7 @@ class _DashboardTimeLineComponentWidgetState
                       style: FlutterFlowTheme.of(context)
                           .headlineSmall
                           .override(
-                            fontFamily: 'Roboto',
+                            fontFamily: 'Inter',
                             color: FlutterFlowTheme.of(context).dashboardText1,
                             fontSize: 20.0,
                             letterSpacing: 0.0,
@@ -183,7 +183,7 @@ class _DashboardTimeLineComponentWidgetState
                     Text(
                       FFAppConstants.today,
                       style: FlutterFlowTheme.of(context).bodyLarge.override(
-                            fontFamily: 'Roboto',
+                            fontFamily: 'Inter',
                             color: const Color(0xB30B2068),
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
@@ -212,7 +212,7 @@ class _DashboardTimeLineComponentWidgetState
                       style: FlutterFlowTheme.of(context)
                           .headlineSmall
                           .override(
-                            fontFamily: 'Roboto',
+                            fontFamily: 'Inter',
                             color: FlutterFlowTheme.of(context).dashboardText2,
                             fontSize: 20.0,
                             letterSpacing: 0.0,
@@ -222,7 +222,7 @@ class _DashboardTimeLineComponentWidgetState
                     Text(
                       FFAppConstants.yesterday,
                       style: FlutterFlowTheme.of(context).bodyLarge.override(
-                            fontFamily: 'Roboto',
+                            fontFamily: 'Inter',
                             color: const Color(0xB404297A),
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
@@ -251,7 +251,7 @@ class _DashboardTimeLineComponentWidgetState
                       style: FlutterFlowTheme.of(context)
                           .headlineSmall
                           .override(
-                            fontFamily: 'Roboto',
+                            fontFamily: 'Inter',
                             color: FlutterFlowTheme.of(context).dashboardText3,
                             fontSize: 20.0,
                             letterSpacing: 0.0,
@@ -261,7 +261,7 @@ class _DashboardTimeLineComponentWidgetState
                     Text(
                       FFAppConstants.week,
                       style: FlutterFlowTheme.of(context).bodyLarge.override(
-                            fontFamily: 'Roboto',
+                            fontFamily: 'Inter',
                             color: const Color(0xB39B7833),
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
@@ -290,7 +290,7 @@ class _DashboardTimeLineComponentWidgetState
                       style: FlutterFlowTheme.of(context)
                           .headlineSmall
                           .override(
-                            fontFamily: 'Roboto',
+                            fontFamily: 'Inter',
                             color: FlutterFlowTheme.of(context).dashboardText4,
                             fontSize: 20.0,
                             letterSpacing: 0.0,
@@ -300,7 +300,7 @@ class _DashboardTimeLineComponentWidgetState
                     Text(
                       FFAppConstants.month,
                       style: FlutterFlowTheme.of(context).bodyLarge.override(
-                            fontFamily: 'Roboto',
+                            fontFamily: 'Inter',
                             color: const Color(0xB27A0C2E),
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,

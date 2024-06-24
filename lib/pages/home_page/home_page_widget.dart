@@ -89,7 +89,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           title: Text(
             FFAppConstants.dashboard,
             style: FlutterFlowTheme.of(context).titleLarge.override(
-                  fontFamily: 'Roboto',
+                  fontFamily: 'Inter',
                   color: FlutterFlowTheme.of(context).primaryText,
                   letterSpacing: 0.0,
                 ),
@@ -137,7 +137,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .titleLarge
                                                 .override(
-                                                  fontFamily: 'Roboto',
+                                                  fontFamily: 'Inter',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
@@ -157,7 +157,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .labelLarge
                                             .override(
-                                              fontFamily: 'Roboto',
+                                              fontFamily: 'Inter',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .blueColor,
@@ -190,7 +190,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           context)
                                                       .titleMedium
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        fontFamily: 'Inter',
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -218,14 +218,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           val),
                                                   width: 300.0,
                                                   height: 48.0,
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .titleMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        fontSize: 14.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                                  textStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleMedium
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   icon: Icon(
                                                     Icons
                                                         .keyboard_arrow_down_rounded,

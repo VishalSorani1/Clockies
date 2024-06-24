@@ -102,7 +102,7 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                       child: Text(
                         FFAppConstants.signIn,
                         style: FlutterFlowTheme.of(context).titleLarge.override(
-                              fontFamily: 'Poppins',
+                              fontFamily: 'Inter',
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w600,
                             ),
@@ -145,14 +145,14 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      fontFamily: 'Inter',
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
                                     ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      fontFamily: 'Inter',
                                       letterSpacing: 0.0,
                                     ),
                                 enabledBorder: OutlineInputBorder(
@@ -191,7 +191,7 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    fontFamily: 'Inter',
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                   ),
@@ -209,7 +209,7 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    fontFamily: 'Inter',
                                     color: FlutterFlowTheme.of(context).error1,
                                     letterSpacing: 0.0,
                                   ),
@@ -251,14 +251,14 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                               labelStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Public Sans',
+                                    fontFamily: 'Inter',
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                   ),
                               hintStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    fontFamily: 'Inter',
                                     color: const Color(0xFFC4CDD5),
                                     letterSpacing: 0.0,
                                   ),
@@ -312,7 +312,7 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Poppins',
+                                  fontFamily: 'Inter',
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                 ),
@@ -330,7 +330,7 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      fontFamily: 'Inter',
                                       color:
                                           FlutterFlowTheme.of(context).error1,
                                       letterSpacing: 0.0,
@@ -363,7 +363,7 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Poppins',
+                                  fontFamily: 'Inter',
                                   color: FlutterFlowTheme.of(context).blueColor,
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
@@ -472,7 +472,7 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                         color: FlutterFlowTheme.of(context).pinkColor,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Poppins',
+                                  fontFamily: 'Inter',
                                   color: Colors.white,
                                   letterSpacing: 0.0,
                                 ),

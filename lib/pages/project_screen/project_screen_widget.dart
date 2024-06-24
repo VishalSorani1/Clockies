@@ -135,7 +135,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
           title: Text(
             'Project Screen',
             style: FlutterFlowTheme.of(context).titleLarge.override(
-                  fontFamily: 'Roboto',
+                  fontFamily: 'Inter',
                   letterSpacing: 0.0,
                 ),
           ),
@@ -187,7 +187,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                               labelStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Roboto',
+                                    fontFamily: 'Inter',
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -258,8 +258,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily:
-                                                                'Roboto',
+                                                            fontFamily: 'Inter',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -282,8 +281,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily:
-                                                                'Roboto',
+                                                            fontFamily: 'Inter',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -306,8 +304,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily:
-                                                                'Roboto',
+                                                            fontFamily: 'Inter',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -330,8 +327,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily:
-                                                                'Roboto',
+                                                            fontFamily: 'Inter',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -385,19 +381,16 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                     child: Text(
                                                       projectListItem
                                                           .projectName,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .textGreyColor,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .textGreyColor,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                   Text(
@@ -407,7 +400,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .textGreyColor,
@@ -421,7 +414,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .textGreyColor,
@@ -437,7 +430,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .textGreyColor,
@@ -531,8 +524,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily:
-                                                                'Roboto',
+                                                            fontFamily: 'Inter',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -555,8 +547,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily:
-                                                                'Roboto',
+                                                            fontFamily: 'Inter',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -579,8 +570,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily:
-                                                                'Roboto',
+                                                            fontFamily: 'Inter',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -603,8 +593,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily:
-                                                                'Roboto',
+                                                            fontFamily: 'Inter',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -658,19 +647,16 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                     child: Text(
                                                       projectListItem
                                                           .projectName,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .textGreyColor,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .textGreyColor,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                   Text(
@@ -680,7 +666,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .textGreyColor,
@@ -694,7 +680,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .textGreyColor,
@@ -710,7 +696,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .textGreyColor,
@@ -804,8 +790,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily:
-                                                                'Roboto',
+                                                            fontFamily: 'Inter',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -828,8 +813,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily:
-                                                                'Roboto',
+                                                            fontFamily: 'Inter',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -852,8 +836,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily:
-                                                                'Roboto',
+                                                            fontFamily: 'Inter',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -876,8 +859,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily:
-                                                                'Roboto',
+                                                            fontFamily: 'Inter',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -931,19 +913,16 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                     child: Text(
                                                       projectListItem
                                                           .projectName,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .textGreyColor,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .textGreyColor,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                   Text(
@@ -953,7 +932,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .textGreyColor,
@@ -967,7 +946,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .textGreyColor,
@@ -983,7 +962,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryText,
