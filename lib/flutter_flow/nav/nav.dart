@@ -100,11 +100,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ProjectDetailScreen',
           path: '/projectDetailScreen',
           builder: (context, params) => ProjectDetailScreenWidget(
-            projectDetail: params.getParam(
-              'projectDetail',
-              ParamType.DataStruct,
-              isList: false,
-              structBuilder: ProjectModelStruct.fromSerializableMap,
+            id: params.getParam(
+              'id',
+              ParamType.int,
             ),
           ),
         )

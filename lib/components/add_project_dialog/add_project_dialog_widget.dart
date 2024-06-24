@@ -108,13 +108,13 @@ class _AddProjectDialogWidgetState extends State<AddProjectDialogWidget> {
                     ),
                     Divider(
                       thickness: 1.0,
-                      color: FlutterFlowTheme.of(context).secondaryText,
+                      color: FlutterFlowTheme.of(context).alternate,
                     ),
                   ].divide(const SizedBox(height: 6.0)),
                 ),
                 Form(
                   key: _model.formKey,
-                  autovalidateMode: AutovalidateMode.always,
+                  autovalidateMode: AutovalidateMode.disabled,
                   child: Padding(
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
@@ -219,7 +219,7 @@ class _AddProjectDialogWidgetState extends State<AddProjectDialogWidget> {
                           ),
                           fillColor:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          elevation: 0.0,
+                          elevation: 1.0,
                           borderColor: FlutterFlowTheme.of(context).blueColor,
                           borderWidth: 1.0,
                           borderRadius: 8.0,
@@ -327,7 +327,7 @@ class _AddProjectDialogWidgetState extends State<AddProjectDialogWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    fontFamily: 'Roboto',
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                   ),
@@ -363,7 +363,7 @@ class _AddProjectDialogWidgetState extends State<AddProjectDialogWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    fontFamily: 'Roboto',
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                   ),
@@ -403,6 +403,7 @@ class _AddProjectDialogWidgetState extends State<AddProjectDialogWidget> {
                                   fontFamily: 'Roboto',
                                   color: Colors.white,
                                   letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
                                 ),
                             elevation: 3.0,
                             borderSide: const BorderSide(

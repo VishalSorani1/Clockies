@@ -15,6 +15,8 @@ class ProjectMemberModelStruct extends BaseStruct {
     int? projectId,
     int? userId,
     ProjectRolesModelStruct? projectRoles,
+    String? totalTime,
+    UserModelStruct? user,
   })  : _id = id,
         _userHours = userHours,
         _projectRoleId = projectRoleId,
@@ -23,7 +25,9 @@ class ProjectMemberModelStruct extends BaseStruct {
         _updatedAt = updatedAt,
         _projectId = projectId,
         _userId = userId,
-        _projectRoles = projectRoles;
+        _projectRoles = projectRoles,
+        _totalTime = totalTime,
+        _user = user;
 
   // "id" field.
   int? _id;
@@ -106,6 +110,24 @@ class ProjectMemberModelStruct extends BaseStruct {
 
   bool hasProjectRoles() => _projectRoles != null;
 
+  // "totalTime" field.
+  String? _totalTime;
+  String get totalTime => _totalTime ?? '';
+  set totalTime(String? val) => _totalTime = val;
+
+  bool hasTotalTime() => _totalTime != null;
+
+  // "user" field.
+  UserModelStruct? _user;
+  UserModelStruct get user => _user ?? UserModelStruct();
+  set user(UserModelStruct? val) => _user = val;
+
+  void updateUser(Function(UserModelStruct) updateFn) {
+    updateFn(user ??= UserModelStruct());
+  }
+
+  bool hasUser() => _user != null;
+
   static ProjectMemberModelStruct fromMap(Map<String, dynamic> data) =>
       ProjectMemberModelStruct(
         id: castToType<int>(data['id']),
@@ -118,6 +140,8 @@ class ProjectMemberModelStruct extends BaseStruct {
         userId: castToType<int>(data['userId']),
         projectRoles:
             ProjectRolesModelStruct.maybeFromMap(data['projectRoles']),
+        totalTime: data['totalTime'] as String?,
+        user: UserModelStruct.maybeFromMap(data['user']),
       );
 
   static ProjectMemberModelStruct? maybeFromMap(dynamic data) => data is Map
@@ -134,6 +158,8 @@ class ProjectMemberModelStruct extends BaseStruct {
         'projectId': _projectId,
         'userId': _userId,
         'projectRoles': _projectRoles?.toMap(),
+        'totalTime': _totalTime,
+        'user': _user?.toMap(),
       }.withoutNulls;
 
   @override
@@ -172,6 +198,14 @@ class ProjectMemberModelStruct extends BaseStruct {
         ),
         'projectRoles': serializeParam(
           _projectRoles,
+          ParamType.DataStruct,
+        ),
+        'totalTime': serializeParam(
+          _totalTime,
+          ParamType.String,
+        ),
+        'user': serializeParam(
+          _user,
           ParamType.DataStruct,
         ),
       }.withoutNulls;
@@ -225,6 +259,17 @@ class ProjectMemberModelStruct extends BaseStruct {
           false,
           structBuilder: ProjectRolesModelStruct.fromSerializableMap,
         ),
+        totalTime: deserializeParam(
+          data['totalTime'],
+          ParamType.String,
+          false,
+        ),
+        user: deserializeStructParam(
+          data['user'],
+          ParamType.DataStruct,
+          false,
+          structBuilder: UserModelStruct.fromSerializableMap,
+        ),
       );
 
   @override
@@ -241,7 +286,9 @@ class ProjectMemberModelStruct extends BaseStruct {
         updatedAt == other.updatedAt &&
         projectId == other.projectId &&
         userId == other.userId &&
-        projectRoles == other.projectRoles;
+        projectRoles == other.projectRoles &&
+        totalTime == other.totalTime &&
+        user == other.user;
   }
 
   @override
@@ -254,7 +301,9 @@ class ProjectMemberModelStruct extends BaseStruct {
         updatedAt,
         projectId,
         userId,
-        projectRoles
+        projectRoles,
+        totalTime,
+        user
       ]);
 }
 
@@ -268,6 +317,8 @@ ProjectMemberModelStruct createProjectMemberModelStruct({
   int? projectId,
   int? userId,
   ProjectRolesModelStruct? projectRoles,
+  String? totalTime,
+  UserModelStruct? user,
 }) =>
     ProjectMemberModelStruct(
       id: id,
@@ -279,4 +330,6 @@ ProjectMemberModelStruct createProjectMemberModelStruct({
       projectId: projectId,
       userId: userId,
       projectRoles: projectRoles ?? ProjectRolesModelStruct(),
+      totalTime: totalTime,
+      user: user ?? UserModelStruct(),
     );

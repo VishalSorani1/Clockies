@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
@@ -12,6 +13,11 @@ class ProjectDetailScreenModel
   bool isLoading = false;
 
   bool hasProjectEditRole = false;
+
+  ProjectModelStruct? projectDetail;
+  void updateProjectDetailStruct(Function(ProjectModelStruct) updateFn) {
+    updateFn(projectDetail ??= ProjectModelStruct());
+  }
 
   ///  State fields for stateful widgets in this page.
 
@@ -84,8 +90,8 @@ class ProjectDetailScreenModel
 
     updateProjectApiResult = await UpdateProjectDetailCall.call(
       authToken: FFAppState().userToken,
-      id: widget.projectDetail?.id,
-      projectName: widget.projectDetail?.projectName,
+      id: widget.id,
+      projectName: projectDetail?.projectName,
       clientId: FFAppState()
           .clientData
           .where((e) => e.clientName == clientDropDownValue)
@@ -136,7 +142,7 @@ class ProjectDetailScreenModel
 
     deleteProjectApiResult = await DeleteProjectCall.call(
       authToken: FFAppState().userToken,
-      id: widget.projectDetail?.id,
+      id: widget.id,
     );
 
     if ((deleteProjectApiResult.succeeded ?? true)) {
@@ -161,6 +167,38 @@ class ProjectDetailScreenModel
           content: Text(
             getJsonField(
               (deleteProjectApiResult.jsonBody ?? ''),
+              r'''$.message''',
+            ).toString().toString(),
+            style: TextStyle(
+              color: FlutterFlowTheme.of(context).primaryText,
+            ),
+          ),
+          duration: const Duration(milliseconds: 4000),
+          backgroundColor: FlutterFlowTheme.of(context).error1,
+        ),
+      );
+    }
+  }
+
+  Future fetchProjectById(BuildContext context) async {
+    ApiCallResponse? fetchProjectByIdResult;
+
+    fetchProjectByIdResult = await FetchProjectByIDCall.call(
+      authToken: FFAppState().userToken,
+      id: widget.id,
+    );
+
+    if ((fetchProjectByIdResult.succeeded ?? true)) {
+      projectDetail =
+          ProjectModelStruct.maybeFromMap(FetchProjectByIDCall.projectDetail(
+        (fetchProjectByIdResult.jsonBody ?? ''),
+      ));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            getJsonField(
+              (fetchProjectByIdResult.jsonBody ?? ''),
               r'''$.message''',
             ).toString().toString(),
             style: TextStyle(

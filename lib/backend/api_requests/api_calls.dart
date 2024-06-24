@@ -297,6 +297,34 @@ class DeleteProjectCall {
   }
 }
 
+class FetchProjectByIDCall {
+  static Future<ApiCallResponse> call({
+    String? authToken = '',
+    int? id,
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Fetch Project By ID',
+      apiUrl: 'http://3.144.249.140:5000/api/project/$id',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': '$authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static dynamic projectDetail(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+      );
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

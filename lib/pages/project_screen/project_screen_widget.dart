@@ -390,11 +390,11 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                         context.pushNamed(
                                                           'ProjectDetailScreen',
                                                           queryParameters: {
-                                                            'projectDetail':
+                                                            'id':
                                                                 serializeParam(
-                                                              projectListItem,
-                                                              ParamType
-                                                                  .DataStruct,
+                                                              projectListItem
+                                                                  .id,
+                                                              ParamType.int,
                                                             ),
                                                           }.withoutNulls,
                                                         );
@@ -672,11 +672,11 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                         context.pushNamed(
                                                           'ProjectDetailScreen',
                                                           queryParameters: {
-                                                            'projectDetail':
+                                                            'id':
                                                                 serializeParam(
-                                                              projectListItem,
-                                                              ParamType
-                                                                  .DataStruct,
+                                                              projectListItem
+                                                                  .id,
+                                                              ParamType.int,
                                                             ),
                                                           }.withoutNulls,
                                                         );
@@ -954,11 +954,11 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                         context.pushNamed(
                                                           'ProjectDetailScreen',
                                                           queryParameters: {
-                                                            'projectDetail':
+                                                            'id':
                                                                 serializeParam(
-                                                              projectListItem,
-                                                              ParamType
-                                                                  .DataStruct,
+                                                              projectListItem
+                                                                  .id,
+                                                              ParamType.int,
                                                             ),
                                                           }.withoutNulls,
                                                         );
