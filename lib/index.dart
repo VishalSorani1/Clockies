@@ -5,7 +5,6 @@ export '/auth/forgot_password_screen/forgot_password_screen_widget.dart'
     show ForgotPasswordScreenWidget;
 export '/pages/project_screen/project_screen_widget.dart'
     show ProjectScreenWidget;
-export '/pages/test/test_widget.dart' show TestWidget;
 export '/auth/splash_screen/splash_screen_widget.dart' show SplashScreenWidget;
 export '/pages/project_detail_screen/project_detail_screen_widget.dart'
     show ProjectDetailScreenWidget;

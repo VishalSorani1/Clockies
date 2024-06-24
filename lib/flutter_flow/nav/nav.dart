@@ -92,11 +92,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : const ProjectScreenWidget(),
         ),
         FFRoute(
-          name: 'test',
-          path: '/test',
-          builder: (context, params) => const TestWidget(),
-        ),
-        FFRoute(
           name: 'SplashScreen',
           path: '/splashScreen',
           builder: (context, params) => const SplashScreenWidget(),

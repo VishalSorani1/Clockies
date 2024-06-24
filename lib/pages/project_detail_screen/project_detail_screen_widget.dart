@@ -96,7 +96,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
               '-',
             ),
             style: FlutterFlowTheme.of(context).titleLarge.override(
-                  fontFamily: 'Poppins',
+                  fontFamily: 'Roboto',
                   letterSpacing: 0.0,
                 ),
           ),
@@ -126,75 +126,86 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                   fontWeight: FontWeight.w500,
                                 ),
                       ),
-                      TextFormField(
-                        controller: _model.descriptionTextFieldTextController,
-                        focusNode: _model.descriptionTextFieldFocusNode,
-                        onFieldSubmitted: (_) async {
-                          await Future.delayed(
-                              const Duration(milliseconds: 100));
-                          await _model.updateProjectDetail(context);
-                          setState(() {});
-                        },
-                        autofocus: false,
-                        textCapitalization: TextCapitalization.none,
-                        textInputAction: TextInputAction.done,
-                        readOnly: !_model.hasProjectEditRole,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          labelStyle:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'Poppins',
-                                    letterSpacing: 0.0,
-                                  ),
-                          hintStyle:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'Poppins',
-                                    letterSpacing: 0.0,
-                                  ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color:
-                                  FlutterFlowTheme.of(context).backgroundColor,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).primary,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          filled: true,
-                          fillColor: (_model.descriptionTextFieldFocusNode
-                                      ?.hasFocus ??
-                                  false)
-                              ? FlutterFlowTheme.of(context).secondaryBackground
-                              : const Color(0x00000000),
+                      Container(
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
-                        style: FlutterFlowTheme.of(context).titleSmall.override(
-                              fontFamily: 'Roboto',
-                              letterSpacing: 0.0,
+                        child: TextFormField(
+                          controller: _model.descriptionTextFieldTextController,
+                          focusNode: _model.descriptionTextFieldFocusNode,
+                          onFieldSubmitted: (_) async {
+                            await Future.delayed(
+                                const Duration(milliseconds: 100));
+                            await _model.updateProjectDetail(context);
+                            setState(() {});
+                          },
+                          autofocus: false,
+                          textCapitalization: TextCapitalization.none,
+                          textInputAction: TextInputAction.done,
+                          readOnly: !_model.hasProjectEditRole,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            labelStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Roboto',
+                                  letterSpacing: 0.0,
+                                ),
+                            hintStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Roboto',
+                                  letterSpacing: 0.0,
+                                ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
-                        maxLines: null,
-                        validator: _model
-                            .descriptionTextFieldTextControllerValidator
-                            .asValidator(context),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).primary,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).error,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).error,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            filled: true,
+                            fillColor: (_model.descriptionTextFieldFocusNode
+                                        ?.hasFocus ??
+                                    false)
+                                ? FlutterFlowTheme.of(context)
+                                    .secondaryBackground
+                                : const Color(0x00000000),
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Roboto',
+                                    letterSpacing: 0.0,
+                                  ),
+                          maxLines: null,
+                          validator: _model
+                              .descriptionTextFieldTextControllerValidator
+                              .asValidator(context),
+                        ),
                       ),
                     ].divide(const SizedBox(height: 8.0)),
                   ),
@@ -221,7 +232,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 12.0, 0.0, 12.0),
+                              12.0, 12.0, 12.0, 12.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -415,7 +426,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    fontFamily: 'Roboto',
                                                     letterSpacing: 0.0,
                                                   ),
                                           hintStyle:

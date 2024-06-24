@@ -135,7 +135,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
           title: Text(
             'Project Screen',
             style: FlutterFlowTheme.of(context).titleLarge.override(
-                  fontFamily: 'Poppins',
+                  fontFamily: 'Roboto',
                   letterSpacing: 0.0,
                 ),
           ),
@@ -181,7 +181,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                             alignment: const Alignment(0.0, 0),
                             child: TabBar(
                               labelColor:
-                                  FlutterFlowTheme.of(context).blueColor,
+                                  FlutterFlowTheme.of(context).pinkColor,
                               unselectedLabelColor:
                                   FlutterFlowTheme.of(context).secondaryText,
                               labelStyle: FlutterFlowTheme.of(context)
@@ -192,7 +192,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                   ),
                               unselectedLabelStyle: const TextStyle(),
                               indicatorColor:
-                                  FlutterFlowTheme.of(context).primary,
+                                  FlutterFlowTheme.of(context).pinkColor,
                               padding: const EdgeInsets.all(4.0),
                               tabs: const [
                                 Tab(
@@ -269,6 +269,9 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                                       14.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
                                                                 ),
                                                       ),
                                                     ),
@@ -295,6 +298,9 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                                       14.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
                                                                 ),
                                                       ),
                                                     ),
@@ -321,6 +327,9 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                                       14.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
                                                                 ),
                                                       ),
                                                     ),
@@ -347,6 +356,9 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                                       14.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
                                                                 ),
                                                       ),
                                                     ),
@@ -360,16 +372,10 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                             selected,
                                                             onSelectChanged) =>
                                                         DataRow(
-                                                  color:
-                                                      MaterialStateProperty.all(
-                                                    projectListIndex % 2 == 0
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryBackground
-                                                        : FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryBackground,
-                                                  ),
+                                                  color: MaterialStateProperty
+                                                      .all(FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground),
                                                   cells: [
                                                     InkWell(
                                                       splashColor:
@@ -402,7 +408,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Poppins',
+                                                                      'Roboto',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -416,7 +422,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily:
-                                                                'Poppins',
+                                                                'Roboto',
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -428,7 +434,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily:
-                                                                'Poppins',
+                                                                'Roboto',
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -442,7 +448,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily:
-                                                                'Poppins',
+                                                                'Roboto',
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -467,20 +473,19 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                 dataRowHeight: 48.0,
                                                 columnSpacing: 20.0,
                                                 headingRowColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
+                                                    const Color(0x7257636C),
                                                 sortIconColor:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
                                                 addHorizontalDivider: true,
-                                                addTopAndBottomDivider: false,
+                                                addTopAndBottomDivider: true,
                                                 hideDefaultHorizontalDivider:
                                                     false,
                                                 horizontalDividerColor:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                        .alternate,
                                                 horizontalDividerThickness: 1.0,
                                                 addVerticalDivider: false,
                                               );
@@ -546,6 +551,9 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                                       14.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
                                                                 ),
                                                       ),
                                                     ),
@@ -572,6 +580,9 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                                       14.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
                                                                 ),
                                                       ),
                                                     ),
@@ -598,6 +609,9 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                                       14.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
                                                                 ),
                                                       ),
                                                     ),
@@ -624,6 +638,9 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                                       14.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
                                                                 ),
                                                       ),
                                                     ),
@@ -637,16 +654,10 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                             selected,
                                                             onSelectChanged) =>
                                                         DataRow(
-                                                  color:
-                                                      MaterialStateProperty.all(
-                                                    projectListIndex % 2 == 0
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryBackground
-                                                        : FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryBackground,
-                                                  ),
+                                                  color: MaterialStateProperty
+                                                      .all(FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground),
                                                   cells: [
                                                     InkWell(
                                                       splashColor:
@@ -679,7 +690,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Poppins',
+                                                                      'Roboto',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -693,7 +704,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily:
-                                                                'Poppins',
+                                                                'Roboto',
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -705,7 +716,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily:
-                                                                'Poppins',
+                                                                'Roboto',
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -719,7 +730,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily:
-                                                                'Poppins',
+                                                                'Roboto',
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -740,25 +751,23 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                 hidePaginator: false,
                                                 showFirstLastButtons: false,
                                                 width: double.infinity,
-                                                height: double.infinity,
                                                 headingRowHeight: 56.0,
                                                 dataRowHeight: 48.0,
                                                 columnSpacing: 20.0,
                                                 headingRowColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
+                                                    const Color(0x7257636C),
                                                 sortIconColor:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
                                                 addHorizontalDivider: true,
-                                                addTopAndBottomDivider: false,
+                                                addTopAndBottomDivider: true,
                                                 hideDefaultHorizontalDivider:
                                                     false,
                                                 horizontalDividerColor:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                        .alternate,
                                                 horizontalDividerThickness: 1.0,
                                                 addVerticalDivider: false,
                                               );
@@ -824,6 +833,9 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                                       14.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
                                                                 ),
                                                       ),
                                                     ),
@@ -850,6 +862,9 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                                       14.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
                                                                 ),
                                                       ),
                                                     ),
@@ -876,6 +891,9 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                                       14.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
                                                                 ),
                                                       ),
                                                     ),
@@ -902,6 +920,9 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                                       14.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
                                                                 ),
                                                       ),
                                                     ),
@@ -915,16 +936,10 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                             selected,
                                                             onSelectChanged) =>
                                                         DataRow(
-                                                  color:
-                                                      MaterialStateProperty.all(
-                                                    projectListIndex % 2 == 0
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryBackground
-                                                        : FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryBackground,
-                                                  ),
+                                                  color: MaterialStateProperty
+                                                      .all(FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground),
                                                   cells: [
                                                     InkWell(
                                                       splashColor:
@@ -957,7 +972,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Poppins',
+                                                                      'Roboto',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -971,7 +986,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily:
-                                                                'Poppins',
+                                                                'Roboto',
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -983,7 +998,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily:
-                                                                'Poppins',
+                                                                'Roboto',
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -997,7 +1012,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily:
-                                                                'Poppins',
+                                                                'Roboto',
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -1022,20 +1037,19 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                 dataRowHeight: 48.0,
                                                 columnSpacing: 20.0,
                                                 headingRowColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
+                                                    const Color(0x7257636C),
                                                 sortIconColor:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
                                                 addHorizontalDivider: true,
-                                                addTopAndBottomDivider: false,
+                                                addTopAndBottomDivider: true,
                                                 hideDefaultHorizontalDivider:
                                                     false,
                                                 horizontalDividerColor:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                        .alternate,
                                                 horizontalDividerThickness: 1.0,
                                                 addVerticalDivider: false,
                                               );

@@ -143,14 +143,14 @@ class _AddProjectDialogWidgetState extends State<AddProjectDialogWidget> {
                               labelStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    fontFamily: 'Roboto',
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                   ),
                               hintStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    fontFamily: 'Roboto',
                                     letterSpacing: 0.0,
                                   ),
                               enabledBorder: OutlineInputBorder(
@@ -184,10 +184,9 @@ class _AddProjectDialogWidgetState extends State<AddProjectDialogWidget> {
                               contentPadding: const EdgeInsets.all(20.0),
                             ),
                             style: FlutterFlowTheme.of(context)
-                                .bodyMedium
+                                .titleSmall
                                 .override(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 16.0,
+                                  fontFamily: 'Roboto',
                                   letterSpacing: 0.0,
                                 ),
                             cursorColor: FlutterFlowTheme.of(context).blueColor,
@@ -208,9 +207,8 @@ class _AddProjectDialogWidgetState extends State<AddProjectDialogWidget> {
                           width: double.infinity,
                           height: 56.0,
                           textStyle:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 16.0,
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Roboto',
                                     letterSpacing: 0.0,
                                   ),
                           hintText: 'Select Client',
@@ -253,14 +251,14 @@ class _AddProjectDialogWidgetState extends State<AddProjectDialogWidget> {
                               labelStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    fontFamily: 'Roboto',
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                   ),
                               hintStyle: FlutterFlowTheme.of(context)
-                                  .labelMedium
+                                  .titleSmall
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    fontFamily: 'Roboto',
                                     letterSpacing: 0.0,
                                   ),
                               enabledBorder: OutlineInputBorder(
@@ -296,7 +294,7 @@ class _AddProjectDialogWidgetState extends State<AddProjectDialogWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Poppins',
+                                  fontFamily: 'Roboto',
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                 ),

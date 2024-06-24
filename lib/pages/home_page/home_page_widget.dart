@@ -7,6 +7,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/actions/actions.dart' as action_blocks;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'home_page_model.dart';
@@ -88,7 +89,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           title: Text(
             FFAppConstants.dashboard,
             style: FlutterFlowTheme.of(context).titleLarge.override(
-                  fontFamily: 'Poppins',
+                  fontFamily: 'Roboto',
                   color: FlutterFlowTheme.of(context).primaryText,
                   letterSpacing: 0.0,
                 ),
@@ -146,7 +147,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           ),
                                           TextSpan(
                                             text: FFAppState().user.userName,
-                                            style: const TextStyle(
+                                            style: GoogleFonts.getFont(
+                                              'Roboto',
                                               fontWeight: FontWeight.w600,
                                               fontSize: 16.0,
                                             ),
@@ -155,7 +157,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .labelLarge
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .blueColor,
