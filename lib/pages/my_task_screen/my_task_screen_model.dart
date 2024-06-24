@@ -13,21 +13,23 @@ class MyTaskScreenModel extends FlutterFlowModel<MyTaskScreenWidget> {
 
   bool isLoading = false;
 
-  List<TaskModelStruct> myTaskList = [];
-  void addToMyTaskList(TaskModelStruct item) => myTaskList.add(item);
-  void removeFromMyTaskList(TaskModelStruct item) => myTaskList.remove(item);
+  List<TestTaskModelStruct> myTaskList = [];
+  void addToMyTaskList(TestTaskModelStruct item) => myTaskList.add(item);
+  void removeFromMyTaskList(TestTaskModelStruct item) =>
+      myTaskList.remove(item);
   void removeAtIndexFromMyTaskList(int index) => myTaskList.removeAt(index);
-  void insertAtIndexInMyTaskList(int index, TaskModelStruct item) =>
+  void insertAtIndexInMyTaskList(int index, TestTaskModelStruct item) =>
       myTaskList.insert(index, item);
-  void updateMyTaskListAtIndex(int index, Function(TaskModelStruct) updateFn) =>
+  void updateMyTaskListAtIndex(
+          int index, Function(TestTaskModelStruct) updateFn) =>
       myTaskList[index] = updateFn(myTaskList[index]);
 
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for employeesDropDown widget.
-  String? employeesDropDownValue;
-  FormFieldController<String>? employeesDropDownValueController;
+  // State field(s) for ProjectListDropDown widget.
+  String? projectListDropDownValue;
+  FormFieldController<String>? projectListDropDownValueController;
   // Model for customDrawerComponent component.
   late CustomDrawerComponentModel customDrawerComponentModel;
 
@@ -67,11 +69,11 @@ class MyTaskScreenModel extends FlutterFlowModel<MyTaskScreenWidget> {
       myTaskList = FetchMyTasksCall.myTasks(
         (myTaskApiResult.jsonBody ?? ''),
       )!
-          .map((e) => TaskModelStruct.maybeFromMap(e))
+          .map((e) => TestTaskModelStruct.maybeFromMap(e))
           .withoutNulls
           .toList()
           .toList()
-          .cast<TaskModelStruct>();
+          .cast<TestTaskModelStruct>();
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(

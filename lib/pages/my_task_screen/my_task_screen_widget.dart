@@ -131,11 +131,11 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                                 Expanded(
                                   child: FlutterFlowDropDown<String>(
                                     controller: _model
-                                            .employeesDropDownValueController ??=
+                                            .projectListDropDownValueController ??=
                                         FormFieldController<String>(null),
                                     options: const ['Option 1'],
                                     onChanged: (val) => setState(() =>
-                                        _model.employeesDropDownValue = val),
+                                        _model.projectListDropDownValue = val),
                                     width: 300.0,
                                     height: 48.0,
                                     textStyle: FlutterFlowTheme.of(context)
