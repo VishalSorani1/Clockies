@@ -1,5 +1,6 @@
 // ignore_for_file: unnecessary_getters_setters
 
+import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -16,10 +17,6 @@ class TestProjectModelStruct extends BaseStruct {
     String? createdAt,
     String? updatedAt,
     int? clientId,
-    int? taskCount,
-    ClientsModelStruct? clients,
-    ProjectMemberModelStruct? projectmember,
-    String? totalTime,
   })  : _id = id,
         _projectName = projectName,
         _totalHrs = totalHrs,
@@ -29,11 +26,7 @@ class TestProjectModelStruct extends BaseStruct {
         _description = description,
         _createdAt = createdAt,
         _updatedAt = updatedAt,
-        _clientId = clientId,
-        _taskCount = taskCount,
-        _clients = clients,
-        _projectmember = projectmember,
-        _totalTime = totalTime;
+        _clientId = clientId;
 
   // "id" field.
   int? _id;
@@ -111,45 +104,6 @@ class TestProjectModelStruct extends BaseStruct {
 
   bool hasClientId() => _clientId != null;
 
-  // "taskCount" field.
-  int? _taskCount;
-  int get taskCount => _taskCount ?? 0;
-  set taskCount(int? val) => _taskCount = val;
-
-  void incrementTaskCount(int amount) => taskCount = taskCount + amount;
-
-  bool hasTaskCount() => _taskCount != null;
-
-  // "clients" field.
-  ClientsModelStruct? _clients;
-  ClientsModelStruct get clients => _clients ?? ClientsModelStruct();
-  set clients(ClientsModelStruct? val) => _clients = val;
-
-  void updateClients(Function(ClientsModelStruct) updateFn) {
-    updateFn(clients ??= ClientsModelStruct());
-  }
-
-  bool hasClients() => _clients != null;
-
-  // "projectmember" field.
-  ProjectMemberModelStruct? _projectmember;
-  ProjectMemberModelStruct get projectmember =>
-      _projectmember ?? ProjectMemberModelStruct();
-  set projectmember(ProjectMemberModelStruct? val) => _projectmember = val;
-
-  void updateProjectmember(Function(ProjectMemberModelStruct) updateFn) {
-    updateFn(projectmember ??= ProjectMemberModelStruct());
-  }
-
-  bool hasProjectmember() => _projectmember != null;
-
-  // "total_time" field.
-  String? _totalTime;
-  String get totalTime => _totalTime ?? '';
-  set totalTime(String? val) => _totalTime = val;
-
-  bool hasTotalTime() => _totalTime != null;
-
   static TestProjectModelStruct fromMap(Map<String, dynamic> data) =>
       TestProjectModelStruct(
         id: castToType<int>(data['id']),
@@ -162,11 +116,6 @@ class TestProjectModelStruct extends BaseStruct {
         createdAt: data['createdAt'] as String?,
         updatedAt: data['updatedAt'] as String?,
         clientId: castToType<int>(data['clientId']),
-        taskCount: castToType<int>(data['taskCount']),
-        clients: ClientsModelStruct.maybeFromMap(data['clients']),
-        projectmember:
-            ProjectMemberModelStruct.maybeFromMap(data['projectmember']),
-        totalTime: data['total_time'] as String?,
       );
 
   static TestProjectModelStruct? maybeFromMap(dynamic data) => data is Map
@@ -184,10 +133,6 @@ class TestProjectModelStruct extends BaseStruct {
         'createdAt': _createdAt,
         'updatedAt': _updatedAt,
         'clientId': _clientId,
-        'taskCount': _taskCount,
-        'clients': _clients?.toMap(),
-        'projectmember': _projectmember?.toMap(),
-        'total_time': _totalTime,
       }.withoutNulls;
 
   @override
@@ -231,22 +176,6 @@ class TestProjectModelStruct extends BaseStruct {
         'clientId': serializeParam(
           _clientId,
           ParamType.int,
-        ),
-        'taskCount': serializeParam(
-          _taskCount,
-          ParamType.int,
-        ),
-        'clients': serializeParam(
-          _clients,
-          ParamType.DataStruct,
-        ),
-        'projectmember': serializeParam(
-          _projectmember,
-          ParamType.DataStruct,
-        ),
-        'total_time': serializeParam(
-          _totalTime,
-          ParamType.String,
         ),
       }.withoutNulls;
 
@@ -303,28 +232,6 @@ class TestProjectModelStruct extends BaseStruct {
           ParamType.int,
           false,
         ),
-        taskCount: deserializeParam(
-          data['taskCount'],
-          ParamType.int,
-          false,
-        ),
-        clients: deserializeStructParam(
-          data['clients'],
-          ParamType.DataStruct,
-          false,
-          structBuilder: ClientsModelStruct.fromSerializableMap,
-        ),
-        projectmember: deserializeStructParam(
-          data['projectmember'],
-          ParamType.DataStruct,
-          false,
-          structBuilder: ProjectMemberModelStruct.fromSerializableMap,
-        ),
-        totalTime: deserializeParam(
-          data['total_time'],
-          ParamType.String,
-          false,
-        ),
       );
 
   @override
@@ -342,11 +249,7 @@ class TestProjectModelStruct extends BaseStruct {
         description == other.description &&
         createdAt == other.createdAt &&
         updatedAt == other.updatedAt &&
-        clientId == other.clientId &&
-        taskCount == other.taskCount &&
-        clients == other.clients &&
-        projectmember == other.projectmember &&
-        totalTime == other.totalTime;
+        clientId == other.clientId;
   }
 
   @override
@@ -360,11 +263,7 @@ class TestProjectModelStruct extends BaseStruct {
         description,
         createdAt,
         updatedAt,
-        clientId,
-        taskCount,
-        clients,
-        projectmember,
-        totalTime
+        clientId
       ]);
 }
 
@@ -379,10 +278,6 @@ TestProjectModelStruct createTestProjectModelStruct({
   String? createdAt,
   String? updatedAt,
   int? clientId,
-  int? taskCount,
-  ClientsModelStruct? clients,
-  ProjectMemberModelStruct? projectmember,
-  String? totalTime,
 }) =>
     TestProjectModelStruct(
       id: id,
@@ -395,8 +290,4 @@ TestProjectModelStruct createTestProjectModelStruct({
       createdAt: createdAt,
       updatedAt: updatedAt,
       clientId: clientId,
-      taskCount: taskCount,
-      clients: clients ?? ClientsModelStruct(),
-      projectmember: projectmember ?? ProjectMemberModelStruct(),
-      totalTime: totalTime,
     );
