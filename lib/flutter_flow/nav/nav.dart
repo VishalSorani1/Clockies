@@ -111,6 +111,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               structBuilder: ProjectModelStruct.fromSerializableMap,
             ),
           ),
+        ),
+        FFRoute(
+          name: 'MyTaskScreen',
+          path: '/myTaskScreen',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'MyTaskScreen')
+              : const MyTaskScreenWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

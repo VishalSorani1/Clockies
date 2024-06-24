@@ -8,3 +8,5 @@ export '/pages/project_screen/project_screen_widget.dart'
 export '/auth/splash_screen/splash_screen_widget.dart' show SplashScreenWidget;
 export '/pages/project_detail_screen/project_detail_screen_widget.dart'
     show ProjectDetailScreenWidget;
+export '/pages/my_task_screen/my_task_screen_widget.dart'
+    show MyTaskScreenWidget;

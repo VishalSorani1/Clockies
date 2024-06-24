@@ -181,18 +181,19 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                             alignment: const Alignment(0.0, 0),
                             child: TabBar(
                               labelColor:
-                                  FlutterFlowTheme.of(context).pinkColor,
+                                  FlutterFlowTheme.of(context).blueColor,
                               unselectedLabelColor:
-                                  FlutterFlowTheme.of(context).secondaryText,
+                                  FlutterFlowTheme.of(context).textGreyColor,
                               labelStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
                                     fontFamily: 'Roboto',
                                     letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
                                   ),
                               unselectedLabelStyle: const TextStyle(),
                               indicatorColor:
-                                  FlutterFlowTheme.of(context).pinkColor,
+                                  FlutterFlowTheme.of(context).blueColor,
                               padding: const EdgeInsets.all(4.0),
                               tabs: const [
                                 Tab(
@@ -216,866 +217,821 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                               controller: _model.tabBarController,
                               physics: const NeverScrollableScrollPhysics(),
                               children: [
-                                KeepAliveWidgetWrapper(
-                                  builder: (context) => Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        20.0, 12.0, 20.0, 12.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Flexible(
-                                          child: Builder(
-                                            builder: (context) {
-                                              final projectList = _model
-                                                  .allProjectList
-                                                  .where((e) =>
-                                                      e.status ==
-                                                      Status.archive.name)
-                                                  .toList();
-                                              if (projectList.isEmpty) {
-                                                return Center(
-                                                  child: Image.asset(
-                                                    'assets/images/9264822-removebg-preview.png',
-                                                    width: 200.0,
-                                                    height: 200.0,
-                                                    fit: BoxFit.scaleDown,
-                                                  ),
-                                                );
-                                              }
-                                              return FlutterFlowDataTable<
-                                                  ProjectModelStruct>(
-                                                controller: _model
-                                                    .paginatedDataTableController1,
-                                                data: projectList,
-                                                columnsBuilder:
-                                                    (onSortChanged) => [
-                                                  DataColumn2(
-                                                    label:
-                                                        DefaultTextStyle.merge(
-                                                      softWrap: true,
-                                                      child: Text(
-                                                        'Name',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    fixedWidth: 150.0,
-                                                    onSort: onSortChanged,
-                                                  ),
-                                                  DataColumn2(
-                                                    label:
-                                                        DefaultTextStyle.merge(
-                                                      softWrap: true,
-                                                      child: Text(
-                                                        'Client',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    fixedWidth: 150.0,
-                                                    onSort: onSortChanged,
-                                                  ),
-                                                  DataColumn2(
-                                                    label:
-                                                        DefaultTextStyle.merge(
-                                                      softWrap: true,
-                                                      child: Text(
-                                                        'Project Budget Hours',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    fixedWidth: 150.0,
-                                                    onSort: onSortChanged,
-                                                  ),
-                                                  DataColumn2(
-                                                    label:
-                                                        DefaultTextStyle.merge(
-                                                      softWrap: true,
-                                                      child: Text(
-                                                        'Total Spend Hours',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    fixedWidth: 150.0,
-                                                    onSort: onSortChanged,
-                                                  ),
-                                                ],
-                                                dataRowBuilder:
-                                                    (projectListItem,
-                                                            projectListIndex,
-                                                            selected,
-                                                            onSelectChanged) =>
-                                                        DataRow(
-                                                  color: MaterialStateProperty
-                                                      .all(FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground),
-                                                  cells: [
-                                                    InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        context.pushNamed(
-                                                          'ProjectDetailScreen',
-                                                          queryParameters: {
-                                                            'id':
-                                                                serializeParam(
-                                                              projectListItem
-                                                                  .id,
-                                                              ParamType.int,
-                                                            ),
-                                                            'projectDetail':
-                                                                serializeParam(
-                                                              projectListItem,
-                                                              ParamType
-                                                                  .DataStruct,
-                                                            ),
-                                                          }.withoutNulls,
-                                                        );
-                                                      },
-                                                      child: Text(
-                                                        projectListItem
-                                                            .projectName,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      projectListItem
-                                                          .clients.clientName,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Roboto',
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                    ),
-                                                    Text(
-                                                      projectListItem.totalHrs
-                                                          .toString(),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Roboto',
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                    ),
-                                                    Text(
-                                                      functions
-                                                          .convertSecondsToHoursAndMinutes(
-                                                              projectListItem
-                                                                  .totalTime),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Roboto',
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                    ),
-                                                  ]
-                                                      .map((c) => DataCell(c))
-                                                      .toList(),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      20.0, 12.0, 20.0, 12.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Flexible(
+                                        child: Builder(
+                                          builder: (context) {
+                                            final projectList = _model
+                                                .allProjectList
+                                                .where((e) =>
+                                                    e.status ==
+                                                    Status.archive.name)
+                                                .toList();
+                                            if (projectList.isEmpty) {
+                                              return Center(
+                                                child: Image.asset(
+                                                  'assets/images/9264822-removebg-preview.png',
+                                                  width: 200.0,
+                                                  height: 200.0,
+                                                  fit: BoxFit.scaleDown,
                                                 ),
-                                                emptyBuilder: () => Center(
-                                                  child: Image.asset(
-                                                    'assets/images/9264822-removebg-preview.png',
-                                                    width: 200.0,
-                                                    height: 200.0,
-                                                    fit: BoxFit.scaleDown,
-                                                  ),
-                                                ),
-                                                paginated: true,
-                                                selectable: false,
-                                                hidePaginator: false,
-                                                showFirstLastButtons: false,
-                                                width: double.infinity,
-                                                headingRowHeight: 56.0,
-                                                dataRowHeight: 48.0,
-                                                columnSpacing: 20.0,
-                                                headingRowColor:
-                                                    const Color(0x7257636C),
-                                                sortIconColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                addHorizontalDivider: true,
-                                                addTopAndBottomDivider: true,
-                                                hideDefaultHorizontalDivider:
-                                                    false,
-                                                horizontalDividerColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                horizontalDividerThickness: 1.0,
-                                                addVerticalDivider: false,
                                               );
-                                            },
-                                          ),
+                                            }
+                                            return FlutterFlowDataTable<
+                                                ProjectModelStruct>(
+                                              controller: _model
+                                                  .paginatedDataTableController1,
+                                              data: projectList,
+                                              columnsBuilder: (onSortChanged) =>
+                                                  [
+                                                DataColumn2(
+                                                  label: DefaultTextStyle.merge(
+                                                    softWrap: true,
+                                                    child: Text(
+                                                      'Name',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  fixedWidth: 150.0,
+                                                  onSort: onSortChanged,
+                                                ),
+                                                DataColumn2(
+                                                  label: DefaultTextStyle.merge(
+                                                    softWrap: true,
+                                                    child: Text(
+                                                      'Client',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  fixedWidth: 150.0,
+                                                  onSort: onSortChanged,
+                                                ),
+                                                DataColumn2(
+                                                  label: DefaultTextStyle.merge(
+                                                    softWrap: true,
+                                                    child: Text(
+                                                      'Project Budget Hours',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  fixedWidth: 150.0,
+                                                  onSort: onSortChanged,
+                                                ),
+                                                DataColumn2(
+                                                  label: DefaultTextStyle.merge(
+                                                    softWrap: true,
+                                                    child: Text(
+                                                      'Total Spend Hours',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  fixedWidth: 150.0,
+                                                  onSort: onSortChanged,
+                                                ),
+                                              ],
+                                              dataRowBuilder: (projectListItem,
+                                                      projectListIndex,
+                                                      selected,
+                                                      onSelectChanged) =>
+                                                  DataRow(
+                                                color: MaterialStateProperty
+                                                    .all(FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground),
+                                                cells: [
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      context.pushNamed(
+                                                        'ProjectDetailScreen',
+                                                        queryParameters: {
+                                                          'id': serializeParam(
+                                                            projectListItem.id,
+                                                            ParamType.int,
+                                                          ),
+                                                          'projectDetail':
+                                                              serializeParam(
+                                                            projectListItem,
+                                                            ParamType
+                                                                .DataStruct,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
+                                                    },
+                                                    child: Text(
+                                                      projectListItem
+                                                          .projectName,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .textGreyColor,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    projectListItem
+                                                        .clients.clientName,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .textGreyColor,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                  Text(
+                                                    projectListItem.totalHrs
+                                                        .toString(),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .textGreyColor,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                  Text(
+                                                    functions
+                                                        .convertSecondsToHoursAndMinutes(
+                                                            projectListItem
+                                                                .totalTime),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .textGreyColor,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ]
+                                                    .map((c) => DataCell(c))
+                                                    .toList(),
+                                              ),
+                                              emptyBuilder: () => Center(
+                                                child: Image.asset(
+                                                  'assets/images/9264822-removebg-preview.png',
+                                                  width: 200.0,
+                                                  height: 200.0,
+                                                  fit: BoxFit.scaleDown,
+                                                ),
+                                              ),
+                                              paginated: true,
+                                              selectable: false,
+                                              hidePaginator: false,
+                                              showFirstLastButtons: false,
+                                              width: double.infinity,
+                                              headingRowHeight: 56.0,
+                                              dataRowHeight: 48.0,
+                                              columnSpacing: 20.0,
+                                              headingRowColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              sortIconColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              addHorizontalDivider: true,
+                                              addTopAndBottomDivider: true,
+                                              hideDefaultHorizontalDivider:
+                                                  false,
+                                              horizontalDividerColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              horizontalDividerThickness: 1.0,
+                                              addVerticalDivider: false,
+                                            );
+                                          },
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                                KeepAliveWidgetWrapper(
-                                  builder: (context) => Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        20.0, 12.0, 20.0, 12.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Flexible(
-                                          child: Builder(
-                                            builder: (context) {
-                                              final projectList = _model
-                                                  .allProjectList
-                                                  .where((e) =>
-                                                      e.status ==
-                                                      Status.active.name)
-                                                  .toList();
-                                              if (projectList.isEmpty) {
-                                                return Center(
-                                                  child: Image.asset(
-                                                    'assets/images/9264822-removebg-preview.png',
-                                                    width: 200.0,
-                                                    height: 200.0,
-                                                    fit: BoxFit.scaleDown,
-                                                  ),
-                                                );
-                                              }
-                                              return FlutterFlowDataTable<
-                                                  ProjectModelStruct>(
-                                                controller: _model
-                                                    .paginatedDataTableController2,
-                                                data: projectList,
-                                                columnsBuilder:
-                                                    (onSortChanged) => [
-                                                  DataColumn2(
-                                                    label:
-                                                        DefaultTextStyle.merge(
-                                                      softWrap: true,
-                                                      child: Text(
-                                                        'Name',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    fixedWidth: 150.0,
-                                                    onSort: onSortChanged,
-                                                  ),
-                                                  DataColumn2(
-                                                    label:
-                                                        DefaultTextStyle.merge(
-                                                      softWrap: true,
-                                                      child: Text(
-                                                        'Client',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    fixedWidth: 150.0,
-                                                    onSort: onSortChanged,
-                                                  ),
-                                                  DataColumn2(
-                                                    label:
-                                                        DefaultTextStyle.merge(
-                                                      softWrap: true,
-                                                      child: Text(
-                                                        'Project Budget Hours',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    fixedWidth: 150.0,
-                                                    onSort: onSortChanged,
-                                                  ),
-                                                  DataColumn2(
-                                                    label:
-                                                        DefaultTextStyle.merge(
-                                                      softWrap: true,
-                                                      child: Text(
-                                                        'Total Spend Hours',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    fixedWidth: 150.0,
-                                                    onSort: onSortChanged,
-                                                  ),
-                                                ],
-                                                dataRowBuilder:
-                                                    (projectListItem,
-                                                            projectListIndex,
-                                                            selected,
-                                                            onSelectChanged) =>
-                                                        DataRow(
-                                                  color: MaterialStateProperty
-                                                      .all(FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground),
-                                                  cells: [
-                                                    InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        context.pushNamed(
-                                                          'ProjectDetailScreen',
-                                                          queryParameters: {
-                                                            'id':
-                                                                serializeParam(
-                                                              projectListItem
-                                                                  .id,
-                                                              ParamType.int,
-                                                            ),
-                                                            'projectDetail':
-                                                                serializeParam(
-                                                              projectListItem,
-                                                              ParamType
-                                                                  .DataStruct,
-                                                            ),
-                                                          }.withoutNulls,
-                                                        );
-                                                      },
-                                                      child: Text(
-                                                        projectListItem
-                                                            .projectName,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      projectListItem
-                                                          .clients.clientName,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Roboto',
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                    ),
-                                                    Text(
-                                                      projectListItem.totalHrs
-                                                          .toString(),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Roboto',
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                    ),
-                                                    Text(
-                                                      functions
-                                                          .convertSecondsToHoursAndMinutes(
-                                                              projectListItem
-                                                                  .totalTime),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Roboto',
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                    ),
-                                                  ]
-                                                      .map((c) => DataCell(c))
-                                                      .toList(),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      20.0, 12.0, 20.0, 12.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Flexible(
+                                        child: Builder(
+                                          builder: (context) {
+                                            final projectList = _model
+                                                .allProjectList
+                                                .where((e) =>
+                                                    e.status ==
+                                                    Status.active.name)
+                                                .toList();
+                                            if (projectList.isEmpty) {
+                                              return Center(
+                                                child: Image.asset(
+                                                  'assets/images/9264822-removebg-preview.png',
+                                                  width: 200.0,
+                                                  height: 200.0,
+                                                  fit: BoxFit.scaleDown,
                                                 ),
-                                                emptyBuilder: () => Center(
-                                                  child: Image.asset(
-                                                    'assets/images/9264822-removebg-preview.png',
-                                                    width: 200.0,
-                                                    height: 200.0,
-                                                    fit: BoxFit.scaleDown,
-                                                  ),
-                                                ),
-                                                paginated: true,
-                                                selectable: false,
-                                                hidePaginator: false,
-                                                showFirstLastButtons: false,
-                                                width: double.infinity,
-                                                headingRowHeight: 56.0,
-                                                dataRowHeight: 48.0,
-                                                columnSpacing: 20.0,
-                                                headingRowColor:
-                                                    const Color(0x7257636C),
-                                                sortIconColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                addHorizontalDivider: true,
-                                                addTopAndBottomDivider: true,
-                                                hideDefaultHorizontalDivider:
-                                                    false,
-                                                horizontalDividerColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                horizontalDividerThickness: 1.0,
-                                                addVerticalDivider: false,
                                               );
-                                            },
-                                          ),
+                                            }
+                                            return FlutterFlowDataTable<
+                                                ProjectModelStruct>(
+                                              controller: _model
+                                                  .paginatedDataTableController2,
+                                              data: projectList,
+                                              columnsBuilder: (onSortChanged) =>
+                                                  [
+                                                DataColumn2(
+                                                  label: DefaultTextStyle.merge(
+                                                    softWrap: true,
+                                                    child: Text(
+                                                      'Name',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  fixedWidth: 150.0,
+                                                  onSort: onSortChanged,
+                                                ),
+                                                DataColumn2(
+                                                  label: DefaultTextStyle.merge(
+                                                    softWrap: true,
+                                                    child: Text(
+                                                      'Client',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  fixedWidth: 150.0,
+                                                  onSort: onSortChanged,
+                                                ),
+                                                DataColumn2(
+                                                  label: DefaultTextStyle.merge(
+                                                    softWrap: true,
+                                                    child: Text(
+                                                      'Project Budget Hours',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  fixedWidth: 150.0,
+                                                  onSort: onSortChanged,
+                                                ),
+                                                DataColumn2(
+                                                  label: DefaultTextStyle.merge(
+                                                    softWrap: true,
+                                                    child: Text(
+                                                      'Total Spend Hours',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  fixedWidth: 150.0,
+                                                  onSort: onSortChanged,
+                                                ),
+                                              ],
+                                              dataRowBuilder: (projectListItem,
+                                                      projectListIndex,
+                                                      selected,
+                                                      onSelectChanged) =>
+                                                  DataRow(
+                                                color: MaterialStateProperty
+                                                    .all(FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground),
+                                                cells: [
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      context.pushNamed(
+                                                        'ProjectDetailScreen',
+                                                        queryParameters: {
+                                                          'id': serializeParam(
+                                                            projectListItem.id,
+                                                            ParamType.int,
+                                                          ),
+                                                          'projectDetail':
+                                                              serializeParam(
+                                                            projectListItem,
+                                                            ParamType
+                                                                .DataStruct,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
+                                                    },
+                                                    child: Text(
+                                                      projectListItem
+                                                          .projectName,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .textGreyColor,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    projectListItem
+                                                        .clients.clientName,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .textGreyColor,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                  Text(
+                                                    projectListItem.totalHrs
+                                                        .toString(),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .textGreyColor,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                  Text(
+                                                    functions
+                                                        .convertSecondsToHoursAndMinutes(
+                                                            projectListItem
+                                                                .totalTime),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .textGreyColor,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ]
+                                                    .map((c) => DataCell(c))
+                                                    .toList(),
+                                              ),
+                                              emptyBuilder: () => Center(
+                                                child: Image.asset(
+                                                  'assets/images/9264822-removebg-preview.png',
+                                                  width: 200.0,
+                                                  height: 200.0,
+                                                  fit: BoxFit.scaleDown,
+                                                ),
+                                              ),
+                                              paginated: true,
+                                              selectable: false,
+                                              hidePaginator: false,
+                                              showFirstLastButtons: false,
+                                              width: double.infinity,
+                                              headingRowHeight: 56.0,
+                                              dataRowHeight: 48.0,
+                                              columnSpacing: 20.0,
+                                              headingRowColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              sortIconColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              addHorizontalDivider: true,
+                                              addTopAndBottomDivider: true,
+                                              hideDefaultHorizontalDivider:
+                                                  false,
+                                              horizontalDividerColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              horizontalDividerThickness: 1.0,
+                                              addVerticalDivider: false,
+                                            );
+                                          },
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                                KeepAliveWidgetWrapper(
-                                  builder: (context) => Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        20.0, 12.0, 20.0, 12.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Flexible(
-                                          child: Builder(
-                                            builder: (context) {
-                                              final projectList = _model
-                                                  .allProjectList
-                                                  .where((e) =>
-                                                      e.status ==
-                                                      Status.complete.name)
-                                                  .toList();
-                                              if (projectList.isEmpty) {
-                                                return Center(
-                                                  child: Image.asset(
-                                                    'assets/images/9264822-removebg-preview.png',
-                                                    width: 200.0,
-                                                    height: 200.0,
-                                                    fit: BoxFit.scaleDown,
-                                                  ),
-                                                );
-                                              }
-                                              return FlutterFlowDataTable<
-                                                  ProjectModelStruct>(
-                                                controller: _model
-                                                    .paginatedDataTableController3,
-                                                data: projectList,
-                                                columnsBuilder:
-                                                    (onSortChanged) => [
-                                                  DataColumn2(
-                                                    label:
-                                                        DefaultTextStyle.merge(
-                                                      softWrap: true,
-                                                      child: Text(
-                                                        'Name',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    fixedWidth: 150.0,
-                                                    onSort: onSortChanged,
-                                                  ),
-                                                  DataColumn2(
-                                                    label:
-                                                        DefaultTextStyle.merge(
-                                                      softWrap: true,
-                                                      child: Text(
-                                                        'Client',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    fixedWidth: 150.0,
-                                                    onSort: onSortChanged,
-                                                  ),
-                                                  DataColumn2(
-                                                    label:
-                                                        DefaultTextStyle.merge(
-                                                      softWrap: true,
-                                                      child: Text(
-                                                        'Project Budget Hours',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    fixedWidth: 150.0,
-                                                    onSort: onSortChanged,
-                                                  ),
-                                                  DataColumn2(
-                                                    label:
-                                                        DefaultTextStyle.merge(
-                                                      softWrap: true,
-                                                      child: Text(
-                                                        'Total Spend Hours',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    fixedWidth: 150.0,
-                                                    onSort: onSortChanged,
-                                                  ),
-                                                ],
-                                                dataRowBuilder:
-                                                    (projectListItem,
-                                                            projectListIndex,
-                                                            selected,
-                                                            onSelectChanged) =>
-                                                        DataRow(
-                                                  color: MaterialStateProperty
-                                                      .all(FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground),
-                                                  cells: [
-                                                    InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        context.pushNamed(
-                                                          'ProjectDetailScreen',
-                                                          queryParameters: {
-                                                            'id':
-                                                                serializeParam(
-                                                              projectListItem
-                                                                  .id,
-                                                              ParamType.int,
-                                                            ),
-                                                            'projectDetail':
-                                                                serializeParam(
-                                                              projectListItem,
-                                                              ParamType
-                                                                  .DataStruct,
-                                                            ),
-                                                          }.withoutNulls,
-                                                        );
-                                                      },
-                                                      child: Text(
-                                                        projectListItem
-                                                            .projectName,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      projectListItem
-                                                          .clients.clientName,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Roboto',
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                    ),
-                                                    Text(
-                                                      projectListItem.totalHrs
-                                                          .toString(),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Roboto',
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                    ),
-                                                    Text(
-                                                      functions
-                                                          .convertSecondsToHoursAndMinutes(
-                                                              projectListItem
-                                                                  .totalTime),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Roboto',
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                    ),
-                                                  ]
-                                                      .map((c) => DataCell(c))
-                                                      .toList(),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      20.0, 12.0, 20.0, 12.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Flexible(
+                                        child: Builder(
+                                          builder: (context) {
+                                            final projectList = _model
+                                                .allProjectList
+                                                .where((e) =>
+                                                    e.status ==
+                                                    Status.complete.name)
+                                                .toList();
+                                            if (projectList.isEmpty) {
+                                              return Center(
+                                                child: Image.asset(
+                                                  'assets/images/9264822-removebg-preview.png',
+                                                  width: 200.0,
+                                                  height: 200.0,
+                                                  fit: BoxFit.scaleDown,
                                                 ),
-                                                emptyBuilder: () => Center(
-                                                  child: Image.asset(
-                                                    'assets/images/9264822-removebg-preview.png',
-                                                    width: 200.0,
-                                                    height: 200.0,
-                                                    fit: BoxFit.scaleDown,
-                                                  ),
-                                                ),
-                                                paginated: true,
-                                                selectable: false,
-                                                hidePaginator: false,
-                                                showFirstLastButtons: false,
-                                                width: double.infinity,
-                                                headingRowHeight: 56.0,
-                                                dataRowHeight: 48.0,
-                                                columnSpacing: 20.0,
-                                                headingRowColor:
-                                                    const Color(0x7257636C),
-                                                sortIconColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                addHorizontalDivider: true,
-                                                addTopAndBottomDivider: true,
-                                                hideDefaultHorizontalDivider:
-                                                    false,
-                                                horizontalDividerColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                horizontalDividerThickness: 1.0,
-                                                addVerticalDivider: false,
                                               );
-                                            },
-                                          ),
+                                            }
+                                            return FlutterFlowDataTable<
+                                                ProjectModelStruct>(
+                                              controller: _model
+                                                  .paginatedDataTableController3,
+                                              data: projectList,
+                                              columnsBuilder: (onSortChanged) =>
+                                                  [
+                                                DataColumn2(
+                                                  label: DefaultTextStyle.merge(
+                                                    softWrap: true,
+                                                    child: Text(
+                                                      'Name',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  fixedWidth: 150.0,
+                                                  onSort: onSortChanged,
+                                                ),
+                                                DataColumn2(
+                                                  label: DefaultTextStyle.merge(
+                                                    softWrap: true,
+                                                    child: Text(
+                                                      'Client',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  fixedWidth: 150.0,
+                                                  onSort: onSortChanged,
+                                                ),
+                                                DataColumn2(
+                                                  label: DefaultTextStyle.merge(
+                                                    softWrap: true,
+                                                    child: Text(
+                                                      'Project Budget Hours',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  fixedWidth: 150.0,
+                                                  onSort: onSortChanged,
+                                                ),
+                                                DataColumn2(
+                                                  label: DefaultTextStyle.merge(
+                                                    softWrap: true,
+                                                    child: Text(
+                                                      'Total Spend Hours',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  fixedWidth: 150.0,
+                                                  onSort: onSortChanged,
+                                                ),
+                                              ],
+                                              dataRowBuilder: (projectListItem,
+                                                      projectListIndex,
+                                                      selected,
+                                                      onSelectChanged) =>
+                                                  DataRow(
+                                                color: MaterialStateProperty
+                                                    .all(FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground),
+                                                cells: [
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      context.pushNamed(
+                                                        'ProjectDetailScreen',
+                                                        queryParameters: {
+                                                          'id': serializeParam(
+                                                            projectListItem.id,
+                                                            ParamType.int,
+                                                          ),
+                                                          'projectDetail':
+                                                              serializeParam(
+                                                            projectListItem,
+                                                            ParamType
+                                                                .DataStruct,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
+                                                    },
+                                                    child: Text(
+                                                      projectListItem
+                                                          .projectName,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .textGreyColor,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    projectListItem
+                                                        .clients.clientName,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .textGreyColor,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                  Text(
+                                                    projectListItem.totalHrs
+                                                        .toString(),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .textGreyColor,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                  Text(
+                                                    functions
+                                                        .convertSecondsToHoursAndMinutes(
+                                                            projectListItem
+                                                                .totalTime),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ]
+                                                    .map((c) => DataCell(c))
+                                                    .toList(),
+                                              ),
+                                              emptyBuilder: () => Center(
+                                                child: Image.asset(
+                                                  'assets/images/9264822-removebg-preview.png',
+                                                  width: 200.0,
+                                                  height: 200.0,
+                                                  fit: BoxFit.scaleDown,
+                                                ),
+                                              ),
+                                              paginated: true,
+                                              selectable: false,
+                                              hidePaginator: false,
+                                              showFirstLastButtons: false,
+                                              width: double.infinity,
+                                              headingRowHeight: 56.0,
+                                              dataRowHeight: 48.0,
+                                              columnSpacing: 20.0,
+                                              headingRowColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              sortIconColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              addHorizontalDivider: true,
+                                              addTopAndBottomDivider: true,
+                                              hideDefaultHorizontalDivider:
+                                                  false,
+                                              horizontalDividerColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              horizontalDividerThickness: 1.0,
+                                              addVerticalDivider: false,
+                                            );
+                                          },
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ],

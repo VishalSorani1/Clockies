@@ -325,6 +325,47 @@ class FetchProjectByIDCall {
       );
 }
 
+class FetchMyTasksCall {
+  static Future<ApiCallResponse> call({
+    String? authToken = '',
+    int? pageNumber,
+    int? pageSize,
+    String? search = '',
+    String? order = '',
+    String? orderBy = '',
+    int? projectId,
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Fetch My Tasks',
+      apiUrl: 'http://3.144.249.140:5000/api/task/myTask',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': '$authToken',
+      },
+      params: {
+        'projectId': projectId,
+        'orderBy': orderBy,
+        'order': order,
+        'search': search,
+        'pageSize': pageSize,
+        'pageNumber': pageNumber,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List? myTasks(dynamic response) => getJsonField(
+        response,
+        r'''$.data.rows''',
+        true,
+      ) as List?;
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

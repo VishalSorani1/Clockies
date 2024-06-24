@@ -4,11 +4,13 @@
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class ProjectModelStruct extends BaseStruct {
-  ProjectModelStruct({
+class TestProjectModelStruct extends BaseStruct {
+  TestProjectModelStruct({
     int? id,
     String? projectName,
     int? totalHrs,
+    bool? allowOverSpent,
+    bool? allowManualTask,
     String? status,
     String? description,
     String? createdAt,
@@ -18,11 +20,11 @@ class ProjectModelStruct extends BaseStruct {
     ClientsModelStruct? clients,
     ProjectMemberModelStruct? projectmember,
     String? totalTime,
-    int? allowOverSpent,
-    int? allowManualTask,
   })  : _id = id,
         _projectName = projectName,
         _totalHrs = totalHrs,
+        _allowOverSpent = allowOverSpent,
+        _allowManualTask = allowManualTask,
         _status = status,
         _description = description,
         _createdAt = createdAt,
@@ -31,9 +33,7 @@ class ProjectModelStruct extends BaseStruct {
         _taskCount = taskCount,
         _clients = clients,
         _projectmember = projectmember,
-        _totalTime = totalTime,
-        _allowOverSpent = allowOverSpent,
-        _allowManualTask = allowManualTask;
+        _totalTime = totalTime;
 
   // "id" field.
   int? _id;
@@ -59,6 +59,20 @@ class ProjectModelStruct extends BaseStruct {
   void incrementTotalHrs(int amount) => totalHrs = totalHrs + amount;
 
   bool hasTotalHrs() => _totalHrs != null;
+
+  // "allowOverSpent" field.
+  bool? _allowOverSpent;
+  bool get allowOverSpent => _allowOverSpent ?? false;
+  set allowOverSpent(bool? val) => _allowOverSpent = val;
+
+  bool hasAllowOverSpent() => _allowOverSpent != null;
+
+  // "allowManualTask" field.
+  bool? _allowManualTask;
+  bool get allowManualTask => _allowManualTask ?? false;
+  set allowManualTask(bool? val) => _allowManualTask = val;
+
+  bool hasAllowManualTask() => _allowManualTask != null;
 
   // "status" field.
   String? _status;
@@ -136,31 +150,13 @@ class ProjectModelStruct extends BaseStruct {
 
   bool hasTotalTime() => _totalTime != null;
 
-  // "allowOverSpent" field.
-  int? _allowOverSpent;
-  int get allowOverSpent => _allowOverSpent ?? 0;
-  set allowOverSpent(int? val) => _allowOverSpent = val;
-
-  void incrementAllowOverSpent(int amount) =>
-      allowOverSpent = allowOverSpent + amount;
-
-  bool hasAllowOverSpent() => _allowOverSpent != null;
-
-  // "allowManualTask" field.
-  int? _allowManualTask;
-  int get allowManualTask => _allowManualTask ?? 0;
-  set allowManualTask(int? val) => _allowManualTask = val;
-
-  void incrementAllowManualTask(int amount) =>
-      allowManualTask = allowManualTask + amount;
-
-  bool hasAllowManualTask() => _allowManualTask != null;
-
-  static ProjectModelStruct fromMap(Map<String, dynamic> data) =>
-      ProjectModelStruct(
+  static TestProjectModelStruct fromMap(Map<String, dynamic> data) =>
+      TestProjectModelStruct(
         id: castToType<int>(data['id']),
         projectName: data['projectName'] as String?,
         totalHrs: castToType<int>(data['totalHrs']),
+        allowOverSpent: data['allowOverSpent'] as bool?,
+        allowManualTask: data['allowManualTask'] as bool?,
         status: data['status'] as String?,
         description: data['description'] as String?,
         createdAt: data['createdAt'] as String?,
@@ -171,18 +167,18 @@ class ProjectModelStruct extends BaseStruct {
         projectmember:
             ProjectMemberModelStruct.maybeFromMap(data['projectmember']),
         totalTime: data['total_time'] as String?,
-        allowOverSpent: castToType<int>(data['allowOverSpent']),
-        allowManualTask: castToType<int>(data['allowManualTask']),
       );
 
-  static ProjectModelStruct? maybeFromMap(dynamic data) => data is Map
-      ? ProjectModelStruct.fromMap(data.cast<String, dynamic>())
+  static TestProjectModelStruct? maybeFromMap(dynamic data) => data is Map
+      ? TestProjectModelStruct.fromMap(data.cast<String, dynamic>())
       : null;
 
   Map<String, dynamic> toMap() => {
         'id': _id,
         'projectName': _projectName,
         'totalHrs': _totalHrs,
+        'allowOverSpent': _allowOverSpent,
+        'allowManualTask': _allowManualTask,
         'status': _status,
         'description': _description,
         'createdAt': _createdAt,
@@ -192,8 +188,6 @@ class ProjectModelStruct extends BaseStruct {
         'clients': _clients?.toMap(),
         'projectmember': _projectmember?.toMap(),
         'total_time': _totalTime,
-        'allowOverSpent': _allowOverSpent,
-        'allowManualTask': _allowManualTask,
       }.withoutNulls;
 
   @override
@@ -209,6 +203,14 @@ class ProjectModelStruct extends BaseStruct {
         'totalHrs': serializeParam(
           _totalHrs,
           ParamType.int,
+        ),
+        'allowOverSpent': serializeParam(
+          _allowOverSpent,
+          ParamType.bool,
+        ),
+        'allowManualTask': serializeParam(
+          _allowManualTask,
+          ParamType.bool,
         ),
         'status': serializeParam(
           _status,
@@ -246,18 +248,11 @@ class ProjectModelStruct extends BaseStruct {
           _totalTime,
           ParamType.String,
         ),
-        'allowOverSpent': serializeParam(
-          _allowOverSpent,
-          ParamType.int,
-        ),
-        'allowManualTask': serializeParam(
-          _allowManualTask,
-          ParamType.int,
-        ),
       }.withoutNulls;
 
-  static ProjectModelStruct fromSerializableMap(Map<String, dynamic> data) =>
-      ProjectModelStruct(
+  static TestProjectModelStruct fromSerializableMap(
+          Map<String, dynamic> data) =>
+      TestProjectModelStruct(
         id: deserializeParam(
           data['id'],
           ParamType.int,
@@ -271,6 +266,16 @@ class ProjectModelStruct extends BaseStruct {
         totalHrs: deserializeParam(
           data['totalHrs'],
           ParamType.int,
+          false,
+        ),
+        allowOverSpent: deserializeParam(
+          data['allowOverSpent'],
+          ParamType.bool,
+          false,
+        ),
+        allowManualTask: deserializeParam(
+          data['allowManualTask'],
+          ParamType.bool,
           false,
         ),
         status: deserializeParam(
@@ -320,27 +325,19 @@ class ProjectModelStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
-        allowOverSpent: deserializeParam(
-          data['allowOverSpent'],
-          ParamType.int,
-          false,
-        ),
-        allowManualTask: deserializeParam(
-          data['allowManualTask'],
-          ParamType.int,
-          false,
-        ),
       );
 
   @override
-  String toString() => 'ProjectModelStruct(${toMap()})';
+  String toString() => 'TestProjectModelStruct(${toMap()})';
 
   @override
   bool operator ==(Object other) {
-    return other is ProjectModelStruct &&
+    return other is TestProjectModelStruct &&
         id == other.id &&
         projectName == other.projectName &&
         totalHrs == other.totalHrs &&
+        allowOverSpent == other.allowOverSpent &&
+        allowManualTask == other.allowManualTask &&
         status == other.status &&
         description == other.description &&
         createdAt == other.createdAt &&
@@ -349,9 +346,7 @@ class ProjectModelStruct extends BaseStruct {
         taskCount == other.taskCount &&
         clients == other.clients &&
         projectmember == other.projectmember &&
-        totalTime == other.totalTime &&
-        allowOverSpent == other.allowOverSpent &&
-        allowManualTask == other.allowManualTask;
+        totalTime == other.totalTime;
   }
 
   @override
@@ -359,6 +354,8 @@ class ProjectModelStruct extends BaseStruct {
         id,
         projectName,
         totalHrs,
+        allowOverSpent,
+        allowManualTask,
         status,
         description,
         createdAt,
@@ -367,16 +364,16 @@ class ProjectModelStruct extends BaseStruct {
         taskCount,
         clients,
         projectmember,
-        totalTime,
-        allowOverSpent,
-        allowManualTask
+        totalTime
       ]);
 }
 
-ProjectModelStruct createProjectModelStruct({
+TestProjectModelStruct createTestProjectModelStruct({
   int? id,
   String? projectName,
   int? totalHrs,
+  bool? allowOverSpent,
+  bool? allowManualTask,
   String? status,
   String? description,
   String? createdAt,
@@ -386,13 +383,13 @@ ProjectModelStruct createProjectModelStruct({
   ClientsModelStruct? clients,
   ProjectMemberModelStruct? projectmember,
   String? totalTime,
-  int? allowOverSpent,
-  int? allowManualTask,
 }) =>
-    ProjectModelStruct(
+    TestProjectModelStruct(
       id: id,
       projectName: projectName,
       totalHrs: totalHrs,
+      allowOverSpent: allowOverSpent,
+      allowManualTask: allowManualTask,
       status: status,
       description: description,
       createdAt: createdAt,
@@ -402,6 +399,4 @@ ProjectModelStruct createProjectModelStruct({
       clients: clients ?? ClientsModelStruct(),
       projectmember: projectmember ?? ProjectMemberModelStruct(),
       totalTime: totalTime,
-      allowOverSpent: allowOverSpent,
-      allowManualTask: allowManualTask,
     );

@@ -103,6 +103,7 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'HomePage': const HomePageWidget(),
       'ProjectScreen': const ProjectScreenWidget(),
+      'MyTaskScreen': const MyTaskScreenWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -115,8 +116,8 @@ class _NavBarPageState extends State<NavBarPage> {
           _currentPageName = tabs.keys.toList()[i];
         }),
         backgroundColor: FlutterFlowTheme.of(context).backgroundColor,
-        selectedItemColor: FlutterFlowTheme.of(context).primary,
-        unselectedItemColor: const Color(0x8A000000),
+        selectedItemColor: FlutterFlowTheme.of(context).blueColor,
+        unselectedItemColor: FlutterFlowTheme.of(context).primaryText,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
@@ -126,7 +127,7 @@ class _NavBarPageState extends State<NavBarPage> {
               FontAwesomeIcons.home,
               size: 20.0,
             ),
-            label: 'Home',
+            label: '',
             tooltip: '',
           ),
           BottomNavigationBarItem(
@@ -134,7 +135,15 @@ class _NavBarPageState extends State<NavBarPage> {
               FontAwesomeIcons.solidFileAlt,
               size: 24.0,
             ),
-            label: 'Home',
+            label: '',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.task,
+              size: 28.0,
+            ),
+            label: '',
             tooltip: '',
           )
         ],

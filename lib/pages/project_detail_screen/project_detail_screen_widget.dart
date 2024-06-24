@@ -133,6 +133,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                   .titleMedium
                                   .override(
                                     fontFamily: 'Roboto',
+                                    fontSize: 18.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -163,6 +164,8 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                       .labelMedium
                                       .override(
                                         fontFamily: 'Roboto',
+                                        color: FlutterFlowTheme.of(context)
+                                            .textGreyColor,
                                         letterSpacing: 0.0,
                                       ),
                                   hintStyle: FlutterFlowTheme.of(context)
@@ -214,6 +217,8 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                     .titleSmall
                                     .override(
                                       fontFamily: 'Roboto',
+                                      color: FlutterFlowTheme.of(context)
+                                          .textGreyColor,
                                       letterSpacing: 0.0,
                                     ),
                                 maxLines: null,
@@ -234,6 +239,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                   .titleMedium
                                   .override(
                                     fontFamily: 'Roboto',
+                                    fontSize: 18.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -261,16 +267,18 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                           Expanded(
                                             child: Text(
                                               'Client:',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleMedium
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .textGreyColor,
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
                                             ),
                                           ),
                                           Expanded(
@@ -304,6 +312,10 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                       .titleMedium
                                                       .override(
                                                         fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .textGreyColor,
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                       ),
@@ -312,7 +324,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                     .keyboard_arrow_down_rounded,
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryText,
+                                                        .textGreyColor,
                                                 size: 20.0,
                                               ),
                                               fillColor:
@@ -346,16 +358,18 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                           Expanded(
                                             child: Text(
                                               'Status',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleMedium
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .textGreyColor,
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
                                             ),
                                           ),
                                           Expanded(
@@ -388,6 +402,10 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                       .titleMedium
                                                       .override(
                                                         fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .textGreyColor,
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                       ),
@@ -396,7 +414,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                     .keyboard_arrow_down_rounded,
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryText,
+                                                        .textGreyColor,
                                                 size: 20.0,
                                               ),
                                               fillColor:
@@ -430,16 +448,18 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                           Expanded(
                                             child: Text(
                                               'Budget Hours',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleMedium
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .textGreyColor,
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
                                             ),
                                           ),
                                           Expanded(
@@ -469,6 +489,9 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                         .labelMedium
                                                         .override(
                                                           fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .textGreyColor,
                                                           letterSpacing: 0.0,
                                                         ),
                                                 hintStyle:
@@ -531,6 +554,10 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .textGreyColor,
                                                         letterSpacing: 0.0,
                                                         lineHeight: 1.0,
                                                       ),
@@ -606,6 +633,10 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                       .titleMedium
                                                       .override(
                                                         fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .textGreyColor,
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -693,6 +724,10 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                       .titleMedium
                                                       .override(
                                                         fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .textGreyColor,
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:

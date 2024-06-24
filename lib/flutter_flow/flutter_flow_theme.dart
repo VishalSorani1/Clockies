@@ -46,6 +46,7 @@ abstract class FlutterFlowTheme {
   late Color dashboardText2;
   late Color dashboardText3;
   late Color dashboardText4;
+  late Color textGreyColor;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -149,6 +150,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color dashboardText2 = const Color(0xFF04297A);
   late Color dashboardText3 = const Color(0xFF9B7833);
   late Color dashboardText4 = const Color(0xFF7A0C2E);
+  late Color textGreyColor = const Color(0xFF5B6889);
 }
 
 abstract class Typography {
