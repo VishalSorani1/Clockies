@@ -1,4 +1,5 @@
 import '/backend/schema/enums/enums.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -16,9 +17,11 @@ class ProjectDetailScreenWidget extends StatefulWidget {
   const ProjectDetailScreenWidget({
     super.key,
     required this.id,
+    required this.projectDetail,
   });
 
   final int? id;
+  final ProjectModelStruct? projectDetail;
 
   @override
   State<ProjectDetailScreenWidget> createState() =>
@@ -39,7 +42,6 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.isLoading = true;
       setState(() {});
-      await _model.fetchProjectById(context);
       _model.isLoading = false;
       setState(() {});
       if (FFAppState().user.userRoleId == 1) {
@@ -52,11 +54,11 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
     });
 
     _model.descriptionTextFieldTextController ??=
-        TextEditingController(text: _model.projectDetail?.description);
+        TextEditingController(text: widget.projectDetail?.description);
     _model.descriptionTextFieldFocusNode ??= FocusNode();
     _model.descriptionTextFieldFocusNode!.addListener(() => setState(() {}));
     _model.totalHourseTextFieldTextController ??=
-        TextEditingController(text: _model.projectDetail?.totalHrs.toString());
+        TextEditingController(text: widget.projectDetail?.totalHrs.toString());
     _model.totalHourseTextFieldFocusNode ??= FocusNode();
   }
 
@@ -78,34 +80,36 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundColor,
-        appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).backgroundColor,
-          automaticallyImplyLeading: false,
-          leading: FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
-            icon: Icon(
-              Icons.arrow_back_rounded,
-              color: FlutterFlowTheme.of(context).primaryText,
-              size: 30.0,
-            ),
-            onPressed: () async {
-              context.safePop();
-            },
-          ),
-          title: Text(
-            _model.projectDetail!.projectName,
-            style: FlutterFlowTheme.of(context).titleLarge.override(
-                  fontFamily: 'Roboto',
-                  letterSpacing: 0.0,
+        appBar: !_model.isLoading
+            ? AppBar(
+                backgroundColor: FlutterFlowTheme.of(context).backgroundColor,
+                automaticallyImplyLeading: false,
+                leading: FlutterFlowIconButton(
+                  borderColor: Colors.transparent,
+                  borderRadius: 30.0,
+                  borderWidth: 1.0,
+                  buttonSize: 60.0,
+                  icon: Icon(
+                    Icons.arrow_back_rounded,
+                    color: FlutterFlowTheme.of(context).primaryText,
+                    size: 30.0,
+                  ),
+                  onPressed: () async {
+                    context.safePop();
+                  },
                 ),
-          ),
-          actions: const [],
-          centerTitle: true,
-          elevation: 0.0,
-        ),
+                title: Text(
+                  widget.projectDetail!.projectName,
+                  style: FlutterFlowTheme.of(context).titleLarge.override(
+                        fontFamily: 'Roboto',
+                        letterSpacing: 0.0,
+                      ),
+                ),
+                actions: const [],
+                centerTitle: true,
+                elevation: 0.0,
+              )
+            : null,
         body: SafeArea(
           top: true,
           child: Builder(
@@ -275,7 +279,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                       .clientDropDownValueController ??=
                                                   FormFieldController<String>(
                                                 _model.clientDropDownValue ??=
-                                                    _model.projectDetail
+                                                    widget.projectDetail
                                                         ?.clients.clientName,
                                               ),
                                               options: FFAppState()
@@ -360,7 +364,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                       .statusDropDownValueController ??=
                                                   FormFieldController<String>(
                                                 _model.statusDropDownValue ??=
-                                                    _model
+                                                    widget
                                                         .projectDetail?.status,
                                               ),
                                               options: Status.values
@@ -544,6 +548,8 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                       padding: const EdgeInsets.all(8.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Expanded(
                                             child: Theme(
@@ -562,7 +568,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                               ),
                                               child: CheckboxListTile(
                                                 value: _model
-                                                    .excessHoursValue ??= _model
+                                                    .excessHoursValue ??= widget
                                                         .projectDetail
                                                         ?.allowOverSpent ==
                                                     1,
@@ -650,7 +656,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                               ),
                                               child: CheckboxListTile(
                                                 value: _model.taskEntryValue ??=
-                                                    _model.projectDetail
+                                                    widget.projectDetail
                                                             ?.allowManualTask ==
                                                         1,
                                                 onChanged:

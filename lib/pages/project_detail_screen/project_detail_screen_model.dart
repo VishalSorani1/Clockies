@@ -91,7 +91,7 @@ class ProjectDetailScreenModel
     updateProjectApiResult = await UpdateProjectDetailCall.call(
       authToken: FFAppState().userToken,
       id: widget.id,
-      projectName: projectDetail?.projectName,
+      projectName: widget.projectDetail?.projectName,
       clientId: FFAppState()
           .clientData
           .where((e) => e.clientName == clientDropDownValue)
