@@ -67,7 +67,7 @@ class ProjectScreenModel extends FlutterFlowModel<ProjectScreenWidget> {
     fetchProjectApiResult = await FetchProjectsCall.call(
       authToken: FFAppState().userToken,
       pageNumber: 0,
-      pageSize: 50,
+      pageSize: 1000,
       status: status,
     );
 

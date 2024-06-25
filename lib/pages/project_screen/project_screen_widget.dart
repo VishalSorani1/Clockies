@@ -271,9 +271,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                           builder: (context) {
                                             final projectList = _model
                                                 .allProjectList
-                                                .where((e) =>
-                                                    e.status ==
-                                                    Status.archive.name)
+                                                .map((e) => e)
                                                 .toList();
                                             if (projectList.isEmpty) {
                                               return Center(
@@ -531,9 +529,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                           builder: (context) {
                                             final projectList = _model
                                                 .allProjectList
-                                                .where((e) =>
-                                                    e.status ==
-                                                    Status.active.name)
+                                                .map((e) => e)
                                                 .toList();
                                             if (projectList.isEmpty) {
                                               return Center(
@@ -791,9 +787,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                           builder: (context) {
                                             final projectList = _model
                                                 .allProjectList
-                                                .where((e) =>
-                                                    e.status ==
-                                                    Status.complete.name)
+                                                .map((e) => e)
                                                 .toList();
                                             if (projectList.isEmpty) {
                                               return Center(
