@@ -122,7 +122,7 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                                       .titleMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        fontSize: 16.0,
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),

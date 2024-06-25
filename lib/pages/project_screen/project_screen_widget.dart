@@ -142,7 +142,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
             ),
           ),
           title: Text(
-            'Project Screen',
+            'Projects',
             style: FlutterFlowTheme.of(context).titleLarge.override(
                   fontFamily: 'Inter',
                   letterSpacing: 0.0,
