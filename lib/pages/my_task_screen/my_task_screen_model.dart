@@ -13,26 +13,14 @@ class MyTaskScreenModel extends FlutterFlowModel<MyTaskScreenWidget> {
 
   bool isLoading = false;
 
-  List<TestTaskModelStruct> myTaskList = [];
-  void addToMyTaskList(TestTaskModelStruct item) => myTaskList.add(item);
-  void removeFromMyTaskList(TestTaskModelStruct item) =>
-      myTaskList.remove(item);
+  List<TaskModelStruct> myTaskList = [];
+  void addToMyTaskList(TaskModelStruct item) => myTaskList.add(item);
+  void removeFromMyTaskList(TaskModelStruct item) => myTaskList.remove(item);
   void removeAtIndexFromMyTaskList(int index) => myTaskList.removeAt(index);
-  void insertAtIndexInMyTaskList(int index, TestTaskModelStruct item) =>
+  void insertAtIndexInMyTaskList(int index, TaskModelStruct item) =>
       myTaskList.insert(index, item);
-  void updateMyTaskListAtIndex(
-          int index, Function(TestTaskModelStruct) updateFn) =>
+  void updateMyTaskListAtIndex(int index, Function(TaskModelStruct) updateFn) =>
       myTaskList[index] = updateFn(myTaskList[index]);
-
-  List<String> projectNameList = [];
-  void addToProjectNameList(String item) => projectNameList.add(item);
-  void removeFromProjectNameList(String item) => projectNameList.remove(item);
-  void removeAtIndexFromProjectNameList(int index) =>
-      projectNameList.removeAt(index);
-  void insertAtIndexInProjectNameList(int index, String item) =>
-      projectNameList.insert(index, item);
-  void updateProjectNameListAtIndex(int index, Function(String) updateFn) =>
-      projectNameList[index] = updateFn(projectNameList[index]);
 
   ///  State fields for stateful widgets in this page.
 
@@ -83,11 +71,11 @@ class MyTaskScreenModel extends FlutterFlowModel<MyTaskScreenWidget> {
       myTaskList = FetchMyTasksCall.myTasks(
         (myTaskApiResult.jsonBody ?? ''),
       )!
-          .map((e) => TestTaskModelStruct.maybeFromMap(e))
+          .map((e) => TaskModelStruct.maybeFromMap(e))
           .withoutNulls
           .toList()
           .toList()
-          .cast<TestTaskModelStruct>();
+          .cast<TaskModelStruct>();
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(

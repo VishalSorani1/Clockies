@@ -23,7 +23,7 @@ class TaskModelStruct extends BaseStruct {
     int? userId,
     UserModelStruct? user,
     int? consumedHours,
-    TestProjectModelStruct? projects,
+    ProjectModelStruct? projects,
   })  : _id = id,
         _taskName = taskName,
         _startDate = startDate,
@@ -186,12 +186,12 @@ class TaskModelStruct extends BaseStruct {
   bool hasConsumedHours() => _consumedHours != null;
 
   // "projects" field.
-  TestProjectModelStruct? _projects;
-  TestProjectModelStruct get projects => _projects ?? TestProjectModelStruct();
-  set projects(TestProjectModelStruct? val) => _projects = val;
+  ProjectModelStruct? _projects;
+  ProjectModelStruct get projects => _projects ?? ProjectModelStruct();
+  set projects(ProjectModelStruct? val) => _projects = val;
 
-  void updateProjects(Function(TestProjectModelStruct) updateFn) {
-    updateFn(projects ??= TestProjectModelStruct());
+  void updateProjects(Function(ProjectModelStruct) updateFn) {
+    updateFn(projects ??= ProjectModelStruct());
   }
 
   bool hasProjects() => _projects != null;
@@ -214,7 +214,7 @@ class TaskModelStruct extends BaseStruct {
         userId: castToType<int>(data['userId']),
         user: UserModelStruct.maybeFromMap(data['user']),
         consumedHours: castToType<int>(data['consumedHours']),
-        projects: TestProjectModelStruct.maybeFromMap(data['projects']),
+        projects: ProjectModelStruct.maybeFromMap(data['projects']),
       );
 
   static TaskModelStruct? maybeFromMap(dynamic data) => data is Map
@@ -410,7 +410,7 @@ class TaskModelStruct extends BaseStruct {
           data['projects'],
           ParamType.DataStruct,
           false,
-          structBuilder: TestProjectModelStruct.fromSerializableMap,
+          structBuilder: ProjectModelStruct.fromSerializableMap,
         ),
       );
 
@@ -481,7 +481,7 @@ TaskModelStruct createTaskModelStruct({
   int? userId,
   UserModelStruct? user,
   int? consumedHours,
-  TestProjectModelStruct? projects,
+  ProjectModelStruct? projects,
 }) =>
     TaskModelStruct(
       id: id,
@@ -501,5 +501,5 @@ TaskModelStruct createTaskModelStruct({
       userId: userId,
       user: user ?? UserModelStruct(),
       consumedHours: consumedHours,
-      projects: projects ?? TestProjectModelStruct(),
+      projects: projects ?? ProjectModelStruct(),
     );

@@ -35,7 +35,10 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.isLoading = true;
       setState(() {});
-      await _model.fetchProject(context);
+      await _model.fetchProject(
+        context,
+        status: Status.archive.name,
+      );
       setState(() {});
       _model.isLoading = false;
       setState(() {});
@@ -68,42 +71,48 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
         backgroundColor: FlutterFlowTheme.of(context).backgroundColor,
         floatingActionButton: Visibility(
           visible: FFAppState().user.userRoleId == 1,
-          child: FloatingActionButton(
-            onPressed: () async {
-              await showModalBottomSheet(
-                isScrollControlled: true,
-                backgroundColor: Colors.transparent,
-                isDismissible: false,
-                enableDrag: false,
-                useSafeArea: true,
-                context: context,
-                builder: (context) {
-                  return GestureDetector(
-                    onTap: () => _model.unfocusNode.canRequestFocus
-                        ? FocusScope.of(context)
-                            .requestFocus(_model.unfocusNode)
-                        : FocusScope.of(context).unfocus(),
-                    child: Padding(
-                      padding: MediaQuery.viewInsetsOf(context),
-                      child: const AddProjectDialogWidget(),
-                    ),
-                  );
-                },
-              ).then((value) => safeSetState(() {}));
+          child: Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 48.0),
+            child: FloatingActionButton(
+              onPressed: () async {
+                await showModalBottomSheet(
+                  isScrollControlled: true,
+                  backgroundColor: Colors.transparent,
+                  isDismissible: false,
+                  enableDrag: false,
+                  useSafeArea: true,
+                  context: context,
+                  builder: (context) {
+                    return GestureDetector(
+                      onTap: () => _model.unfocusNode.canRequestFocus
+                          ? FocusScope.of(context)
+                              .requestFocus(_model.unfocusNode)
+                          : FocusScope.of(context).unfocus(),
+                      child: Padding(
+                        padding: MediaQuery.viewInsetsOf(context),
+                        child: const AddProjectDialogWidget(),
+                      ),
+                    );
+                  },
+                ).then((value) => safeSetState(() {}));
 
-              _model.isLoading = true;
-              setState(() {});
-              await _model.fetchProject(context);
-              setState(() {});
-              _model.isLoading = false;
-              setState(() {});
-            },
-            backgroundColor: FlutterFlowTheme.of(context).pinkColor,
-            elevation: 8.0,
-            child: Icon(
-              Icons.add,
-              color: FlutterFlowTheme.of(context).info,
-              size: 24.0,
+                _model.isLoading = true;
+                setState(() {});
+                await _model.fetchProject(
+                  context,
+                  status: Status.active.name,
+                );
+                setState(() {});
+                _model.isLoading = false;
+                setState(() {});
+              },
+              backgroundColor: FlutterFlowTheme.of(context).pinkColor,
+              elevation: 8.0,
+              child: Icon(
+                Icons.add,
+                color: FlutterFlowTheme.of(context).info,
+                size: 24.0,
+              ),
             ),
           ),
         ),
@@ -150,7 +159,10 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                 onTap: () async {
                   _model.isLoading = true;
                   setState(() {});
-                  await _model.fetchProject(context);
+                  await _model.fetchProject(
+                    context,
+                    status: FFAppConstants.active,
+                  );
                   setState(() {});
                   _model.isLoading = false;
                   setState(() {});
@@ -208,7 +220,38 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                               ],
                               controller: _model.tabBarController,
                               onTap: (i) async {
-                                [() async {}, () async {}, () async {}][i]();
+                                [
+                                  () async {
+                                    _model.isLoading = true;
+                                    setState(() {});
+                                    await _model.fetchProject(
+                                      context,
+                                      status: Status.archive.name,
+                                    );
+                                    _model.isLoading = false;
+                                    setState(() {});
+                                  },
+                                  () async {
+                                    _model.isLoading = true;
+                                    setState(() {});
+                                    await _model.fetchProject(
+                                      context,
+                                      status: Status.active.name,
+                                    );
+                                    _model.isLoading = false;
+                                    setState(() {});
+                                  },
+                                  () async {
+                                    _model.isLoading = true;
+                                    setState(() {});
+                                    await _model.fetchProject(
+                                      context,
+                                      status: Status.complete.name,
+                                    );
+                                    _model.isLoading = false;
+                                    setState(() {});
+                                  }
+                                ][i]();
                               },
                             ),
                           ),

@@ -42,6 +42,8 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.isLoading = true;
       setState(() {});
+      await _model.fetchProjectById(context);
+      await Future.delayed(const Duration(milliseconds: 2000));
       _model.isLoading = false;
       setState(() {});
       if (FFAppState().user.userRoleId == 1) {
@@ -54,11 +56,11 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
     });
 
     _model.descriptionTextFieldTextController ??=
-        TextEditingController(text: widget.projectDetail?.description);
+        TextEditingController(text: _model.projectDetail?.description);
     _model.descriptionTextFieldFocusNode ??= FocusNode();
     _model.descriptionTextFieldFocusNode!.addListener(() => setState(() {}));
     _model.totalHourseTextFieldTextController ??=
-        TextEditingController(text: widget.projectDetail?.totalHrs.toString());
+        TextEditingController(text: _model.projectDetail?.totalHrs.toString());
     _model.totalHourseTextFieldFocusNode ??= FocusNode();
   }
 
@@ -99,7 +101,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                   },
                 ),
                 title: Text(
-                  widget.projectDetail!.projectName,
+                  _model.projectDetail!.projectName,
                   style: FlutterFlowTheme.of(context).titleLarge.override(
                         fontFamily: 'Inter',
                         letterSpacing: 0.0,
@@ -287,7 +289,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                       .clientDropDownValueController ??=
                                                   FormFieldController<String>(
                                                 _model.clientDropDownValue ??=
-                                                    widget.projectDetail
+                                                    _model.projectDetail
                                                         ?.clients.clientName,
                                               ),
                                               options: FFAppState()
@@ -378,7 +380,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                       .statusDropDownValueController ??=
                                                   FormFieldController<String>(
                                                 _model.statusDropDownValue ??=
-                                                    widget
+                                                    _model
                                                         .projectDetail?.status,
                                               ),
                                               options: Status.values
@@ -594,11 +596,10 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                         .secondaryText,
                                               ),
                                               child: CheckboxListTile(
-                                                value: _model
-                                                    .excessHoursValue ??= widget
-                                                        .projectDetail
-                                                        ?.allowOverSpent ==
-                                                    1,
+                                                value:
+                                                    _model.excessHoursValue ??=
+                                                        _model.projectDetail!
+                                                            .allowOverSpent,
                                                 onChanged:
                                                     !_model.hasProjectEditRole
                                                         ? null
@@ -687,9 +688,8 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                               ),
                                               child: CheckboxListTile(
                                                 value: _model.taskEntryValue ??=
-                                                    widget.projectDetail
-                                                            ?.allowManualTask ==
-                                                        1,
+                                                    _model.projectDetail!
+                                                        .allowManualTask,
                                                 onChanged:
                                                     !_model.hasProjectEditRole
                                                         ? null

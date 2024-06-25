@@ -18,8 +18,8 @@ class ProjectModelStruct extends BaseStruct {
     ClientsModelStruct? clients,
     ProjectMemberModelStruct? projectmember,
     String? totalTime,
-    int? allowOverSpent,
-    int? allowManualTask,
+    bool? allowOverSpent,
+    bool? allowManualTask,
   })  : _id = id,
         _projectName = projectName,
         _totalHrs = totalHrs,
@@ -137,22 +137,16 @@ class ProjectModelStruct extends BaseStruct {
   bool hasTotalTime() => _totalTime != null;
 
   // "allowOverSpent" field.
-  int? _allowOverSpent;
-  int get allowOverSpent => _allowOverSpent ?? 0;
-  set allowOverSpent(int? val) => _allowOverSpent = val;
-
-  void incrementAllowOverSpent(int amount) =>
-      allowOverSpent = allowOverSpent + amount;
+  bool? _allowOverSpent;
+  bool get allowOverSpent => _allowOverSpent ?? false;
+  set allowOverSpent(bool? val) => _allowOverSpent = val;
 
   bool hasAllowOverSpent() => _allowOverSpent != null;
 
   // "allowManualTask" field.
-  int? _allowManualTask;
-  int get allowManualTask => _allowManualTask ?? 0;
-  set allowManualTask(int? val) => _allowManualTask = val;
-
-  void incrementAllowManualTask(int amount) =>
-      allowManualTask = allowManualTask + amount;
+  bool? _allowManualTask;
+  bool get allowManualTask => _allowManualTask ?? false;
+  set allowManualTask(bool? val) => _allowManualTask = val;
 
   bool hasAllowManualTask() => _allowManualTask != null;
 
@@ -171,8 +165,8 @@ class ProjectModelStruct extends BaseStruct {
         projectmember:
             ProjectMemberModelStruct.maybeFromMap(data['projectmember']),
         totalTime: data['total_time'] as String?,
-        allowOverSpent: castToType<int>(data['allowOverSpent']),
-        allowManualTask: castToType<int>(data['allowManualTask']),
+        allowOverSpent: data['allowOverSpent'] as bool?,
+        allowManualTask: data['allowManualTask'] as bool?,
       );
 
   static ProjectModelStruct? maybeFromMap(dynamic data) => data is Map
@@ -248,11 +242,11 @@ class ProjectModelStruct extends BaseStruct {
         ),
         'allowOverSpent': serializeParam(
           _allowOverSpent,
-          ParamType.int,
+          ParamType.bool,
         ),
         'allowManualTask': serializeParam(
           _allowManualTask,
-          ParamType.int,
+          ParamType.bool,
         ),
       }.withoutNulls;
 
@@ -322,12 +316,12 @@ class ProjectModelStruct extends BaseStruct {
         ),
         allowOverSpent: deserializeParam(
           data['allowOverSpent'],
-          ParamType.int,
+          ParamType.bool,
           false,
         ),
         allowManualTask: deserializeParam(
           data['allowManualTask'],
-          ParamType.int,
+          ParamType.bool,
           false,
         ),
       );
@@ -386,8 +380,8 @@ ProjectModelStruct createProjectModelStruct({
   ClientsModelStruct? clients,
   ProjectMemberModelStruct? projectmember,
   String? totalTime,
-  int? allowOverSpent,
-  int? allowManualTask,
+  bool? allowOverSpent,
+  bool? allowManualTask,
 }) =>
     ProjectModelStruct(
       id: id,

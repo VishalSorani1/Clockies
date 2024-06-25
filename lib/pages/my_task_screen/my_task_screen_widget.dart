@@ -102,33 +102,33 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      if (_model.myTaskList.isNotEmpty)
-                        Container(
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          alignment: const AlignmentDirectional(0.0, 0.0),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Expanded(
-                                  child: Text(
-                                    FFAppConstants.projectName,
-                                    style: FlutterFlowTheme.of(context)
-                                        .titleMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          fontSize: 16.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
+                      Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  FFAppConstants.projectName,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        fontSize: 16.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                 ),
+                              ),
+                              if (_model.myTaskList.isNotEmpty)
                                 Expanded(
                                   child: FlutterFlowDropDown<String>(
                                     controller: _model
@@ -177,10 +177,10 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                                     isMultiSelect: false,
                                   ),
                                 ),
-                              ],
-                            ),
+                            ],
                           ),
                         ),
+                      ),
                       Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),

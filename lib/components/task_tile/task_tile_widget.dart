@@ -11,7 +11,7 @@ class TaskTileWidget extends StatefulWidget {
     required this.myTaskDetail,
   });
 
-  final TestTaskModelStruct? myTaskDetail;
+  final TaskModelStruct? myTaskDetail;
 
   @override
   State<TaskTileWidget> createState() => _TaskTileWidgetState();
@@ -71,6 +71,7 @@ class _TaskTileWidgetState extends State<TaskTileWidget> {
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Inter',
                     color: FlutterFlowTheme.of(context).blueColor,
+                    fontSize: 12.0,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w500,
                   ),

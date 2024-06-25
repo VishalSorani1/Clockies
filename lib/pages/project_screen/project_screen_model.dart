@@ -58,12 +58,17 @@ class ProjectScreenModel extends FlutterFlowModel<ProjectScreenWidget> {
   }
 
   /// Action blocks.
-  Future fetchProject(BuildContext context) async {
+  Future fetchProject(
+    BuildContext context, {
+    required String? status,
+  }) async {
     ApiCallResponse? fetchProjectApiResult;
 
     fetchProjectApiResult = await FetchProjectsCall.call(
       authToken: FFAppState().userToken,
-      search: 'clockies test app',
+      pageNumber: 0,
+      pageSize: 100,
+      status: status,
     );
 
     if ((fetchProjectApiResult.succeeded ?? true)) {
