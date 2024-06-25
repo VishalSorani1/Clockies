@@ -412,12 +412,6 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                             projectListItem.id,
                                                             ParamType.int,
                                                           ),
-                                                          'projectDetail':
-                                                              serializeParam(
-                                                            projectListItem,
-                                                            ParamType
-                                                                .DataStruct,
-                                                          ),
                                                         }.withoutNulls,
                                                       );
                                                     },
@@ -678,12 +672,6 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                             projectListItem.id,
                                                             ParamType.int,
                                                           ),
-                                                          'projectDetail':
-                                                              serializeParam(
-                                                            projectListItem,
-                                                            ParamType
-                                                                .DataStruct,
-                                                          ),
                                                         }.withoutNulls,
                                                       );
                                                     },
@@ -943,12 +931,6 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                           'id': serializeParam(
                                                             projectListItem.id,
                                                             ParamType.int,
-                                                          ),
-                                                          'projectDetail':
-                                                              serializeParam(
-                                                            projectListItem,
-                                                            ParamType
-                                                                .DataStruct,
                                                           ),
                                                         }.withoutNulls,
                                                       );

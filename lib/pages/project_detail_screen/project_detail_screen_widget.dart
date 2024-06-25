@@ -1,5 +1,4 @@
 import '/backend/schema/enums/enums.dart';
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -17,11 +16,9 @@ class ProjectDetailScreenWidget extends StatefulWidget {
   const ProjectDetailScreenWidget({
     super.key,
     required this.id,
-    required this.projectDetail,
   });
 
   final int? id;
-  final ProjectModelStruct? projectDetail;
 
   @override
   State<ProjectDetailScreenWidget> createState() =>
@@ -43,7 +40,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
       _model.isLoading = true;
       setState(() {});
       await _model.fetchProjectById(context);
-      await Future.delayed(const Duration(milliseconds: 2000));
+      setState(() {});
       _model.isLoading = false;
       setState(() {});
       if (FFAppState().user.userRoleId == 1) {
@@ -101,7 +98,10 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                   },
                 ),
                 title: Text(
-                  _model.projectDetail!.projectName,
+                  valueOrDefault<String>(
+                    _model.projectDetail?.projectName,
+                    '-',
+                  ),
                   style: FlutterFlowTheme.of(context).titleLarge.override(
                         fontFamily: 'Inter',
                         letterSpacing: 0.0,

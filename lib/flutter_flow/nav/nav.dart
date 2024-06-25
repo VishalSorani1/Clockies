@@ -104,12 +104,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'id',
               ParamType.int,
             ),
-            projectDetail: params.getParam(
-              'projectDetail',
-              ParamType.DataStruct,
-              isList: false,
-              structBuilder: ProjectModelStruct.fromSerializableMap,
-            ),
           ),
         ),
         FFRoute(
