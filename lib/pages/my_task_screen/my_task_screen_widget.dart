@@ -1,10 +1,9 @@
 import '/components/custom_drawer_component/custom_drawer_component_widget.dart';
-import '/components/task_tile_widget.dart';
+import '/components/task_tile/task_tile_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:lottie/lottie.dart';
@@ -103,79 +102,90 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  FFAppConstants.projectName,
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                              ),
-                              Expanded(
-                                child: FlutterFlowDropDown<String>(
-                                  controller: _model
-                                          .projectListDropDownValueController ??=
-                                      FormFieldController<String>(null),
-                                  options: const ['Option 1'],
-                                  onChanged: (val) => setState(() =>
-                                      _model.projectListDropDownValue = val),
-                                  width: 300.0,
-                                  height: 48.0,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 14.0,
-                                        letterSpacing: 0.0,
-                                      ),
-                                  icon: Icon(
-                                    Icons.keyboard_arrow_down_rounded,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    size: 20.0,
+                      if (_model.myTaskList.isNotEmpty)
+                        Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    FFAppConstants.projectName,
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
                                   ),
-                                  fillColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  elevation: 2.0,
-                                  borderColor:
-                                      FlutterFlowTheme.of(context).blueColor,
-                                  borderWidth: 1.0,
-                                  borderRadius: 8.0,
-                                  margin: const EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 6.0),
-                                  hidesUnderline: true,
-                                  isOverButton: true,
-                                  isSearchable: false,
-                                  isMultiSelect: false,
                                 ),
-                              ),
-                            ],
+                                Expanded(
+                                  child: FlutterFlowDropDown<String>(
+                                    controller: _model
+                                            .projectListDropDownValueController ??=
+                                        FormFieldController<String>(
+                                      _model.projectListDropDownValue ??= _model
+                                          .myTaskList
+                                          .unique((e) => e.projects.projectName)
+                                          .first
+                                          .projects
+                                          .projectName,
+                                    ),
+                                    options: _model.myTaskList
+                                        .unique((e) => e.projects.projectName)
+                                        .map((e) => e.projects.projectName)
+                                        .toList(),
+                                    onChanged: (val) => setState(() =>
+                                        _model.projectListDropDownValue = val),
+                                    width: 300.0,
+                                    height: 48.0,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          fontSize: 14.0,
+                                          letterSpacing: 0.0,
+                                        ),
+                                    icon: Icon(
+                                      Icons.keyboard_arrow_down_rounded,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      size: 20.0,
+                                    ),
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    elevation: 2.0,
+                                    borderColor:
+                                        FlutterFlowTheme.of(context).blueColor,
+                                    borderWidth: 1.0,
+                                    borderRadius: 8.0,
+                                    margin: const EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 16.0, 6.0),
+                                    hidesUnderline: true,
+                                    isOverButton: true,
+                                    isSearchable: false,
+                                    isMultiSelect: false,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
                       Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                         child: Text(
-                          'Project Name',
+                          _model.projectListDropDownValue!,
                           style:
                               FlutterFlowTheme.of(context).titleMedium.override(
                                     fontFamily: 'Inter',
@@ -187,27 +197,34 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                       Expanded(
                         child: Builder(
                           builder: (context) {
-                            final list = List.generate(
-                                random_data.randomInteger(20, 20),
-                                (index) => random_data.randomString(
-                                      0,
-                                      0,
-                                      true,
-                                      false,
-                                      false,
-                                    )).toList().take(20).toList();
+                            final myTask = _model.myTaskList
+                                .where((e) =>
+                                    e.projects.projectName ==
+                                    _model.projectListDropDownValue)
+                                .toList();
+                            if (myTask.isEmpty) {
+                              return Center(
+                                child: Image.asset(
+                                  'assets/images/9264822-removebg-preview.png',
+                                  width: 200.0,
+                                  height: 200.0,
+                                  fit: BoxFit.scaleDown,
+                                ),
+                              );
+                            }
                             return ListView.separated(
                               padding: EdgeInsets.zero,
                               shrinkWrap: true,
                               scrollDirection: Axis.vertical,
-                              itemCount: list.length,
+                              itemCount: myTask.length,
                               separatorBuilder: (_, __) =>
                                   const SizedBox(height: 8.0),
-                              itemBuilder: (context, listIndex) {
-                                final listItem = list[listIndex];
+                              itemBuilder: (context, myTaskIndex) {
+                                final myTaskItem = myTask[myTaskIndex];
                                 return TaskTileWidget(
                                   key: Key(
-                                      'Key4bk_${listIndex}_of_${list.length}'),
+                                      'Key4bk_${myTaskIndex}_of_${myTask.length}'),
+                                  myTaskDetail: myTaskItem,
                                 );
                               },
                             );

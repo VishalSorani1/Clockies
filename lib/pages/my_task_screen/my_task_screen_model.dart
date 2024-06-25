@@ -24,6 +24,16 @@ class MyTaskScreenModel extends FlutterFlowModel<MyTaskScreenWidget> {
           int index, Function(TestTaskModelStruct) updateFn) =>
       myTaskList[index] = updateFn(myTaskList[index]);
 
+  List<String> projectNameList = [];
+  void addToProjectNameList(String item) => projectNameList.add(item);
+  void removeFromProjectNameList(String item) => projectNameList.remove(item);
+  void removeAtIndexFromProjectNameList(int index) =>
+      projectNameList.removeAt(index);
+  void insertAtIndexInProjectNameList(int index, String item) =>
+      projectNameList.insert(index, item);
+  void updateProjectNameListAtIndex(int index, Function(String) updateFn) =>
+      projectNameList[index] = updateFn(projectNameList[index]);
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -51,6 +61,10 @@ class MyTaskScreenModel extends FlutterFlowModel<MyTaskScreenWidget> {
 
     myTaskApiResult = await FetchMyTasksCall.call(
       authToken: FFAppState().userToken,
+      pageNumber: 0,
+      pageSize: 10,
+      order: 'asc',
+      orderBy: 'taskName',
     );
 
     if ((myTaskApiResult.succeeded ?? true)) {
