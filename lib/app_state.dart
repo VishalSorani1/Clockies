@@ -221,6 +221,35 @@ class FFAppState extends ChangeNotifier {
     prefs.setStringList(
         'ff_sectionList', _sectionList.map((x) => x.serialize()).toList());
   }
+
+  List<ProjectModelStruct> _projectDetail = [];
+  List<ProjectModelStruct> get projectDetail => _projectDetail;
+  set projectDetail(List<ProjectModelStruct> value) {
+    _projectDetail = value;
+  }
+
+  void addToProjectDetail(ProjectModelStruct value) {
+    projectDetail.add(value);
+  }
+
+  void removeFromProjectDetail(ProjectModelStruct value) {
+    projectDetail.remove(value);
+  }
+
+  void removeAtIndexFromProjectDetail(int index) {
+    projectDetail.removeAt(index);
+  }
+
+  void updateProjectDetailAtIndex(
+    int index,
+    ProjectModelStruct Function(ProjectModelStruct) updateFn,
+  ) {
+    projectDetail[index] = updateFn(_projectDetail[index]);
+  }
+
+  void insertAtIndexInProjectDetail(int index, ProjectModelStruct value) {
+    projectDetail.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

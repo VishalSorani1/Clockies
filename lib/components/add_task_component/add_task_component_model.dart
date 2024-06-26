@@ -1,23 +1,9 @@
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'add_task_component_widget.dart' show AddTaskComponentWidget;
 import 'package:flutter/material.dart';
 
 class AddTaskComponentModel extends FlutterFlowModel<AddTaskComponentWidget> {
-  ///  Local state fields for this component.
-
-  List<SectionModelStruct> sectionList = [];
-  void addToSectionList(SectionModelStruct item) => sectionList.add(item);
-  void removeFromSectionList(SectionModelStruct item) =>
-      sectionList.remove(item);
-  void removeAtIndexFromSectionList(int index) => sectionList.removeAt(index);
-  void insertAtIndexInSectionList(int index, SectionModelStruct item) =>
-      sectionList.insert(index, item);
-  void updateSectionListAtIndex(
-          int index, Function(SectionModelStruct) updateFn) =>
-      sectionList[index] = updateFn(sectionList[index]);
-
   ///  State fields for stateful widgets in this component.
 
   final formKey = GlobalKey<FormState>();

@@ -78,3 +78,48 @@ Future fetchSections(
     );
   }
 }
+
+Future fetchProjectById(
+  BuildContext context, {
+  required int? id,
+}) async {
+  ApiCallResponse? fetchProjectApiResult;
+
+  fetchProjectApiResult = await FetchProjectByIDCall.call(
+    authToken: FFAppState().userToken,
+    id: id,
+  );
+
+  if ((fetchProjectApiResult.succeeded ?? true)) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: const Text(
+          'true',
+          style: TextStyle(),
+        ),
+        duration: const Duration(milliseconds: 4000),
+        backgroundColor: FlutterFlowTheme.of(context).secondary,
+      ),
+    );
+    FFAppState().projectDetail = (FetchProjectByIDCall.projectDetail(
+      (fetchProjectApiResult.jsonBody ?? ''),
+    )!
+            .toList()
+            .map<ProjectModelStruct?>(ProjectModelStruct.maybeFromMap)
+            .toList() as Iterable<ProjectModelStruct?>)
+        .withoutNulls
+        .toList()
+        .cast<ProjectModelStruct>();
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: const Text(
+          'false',
+          style: TextStyle(),
+        ),
+        duration: const Duration(milliseconds: 4000),
+        backgroundColor: FlutterFlowTheme.of(context).secondary,
+      ),
+    );
+  }
+}

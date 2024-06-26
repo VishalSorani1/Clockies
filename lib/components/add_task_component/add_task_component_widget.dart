@@ -43,7 +43,8 @@ class _AddTaskComponentWidgetState extends State<AddTaskComponentWidget> {
     _model.descriptionTextFieldTextController ??= TextEditingController();
     _model.descriptionTextFieldFocusNode ??= FocusNode();
 
-    _model.projectTextFieldTextController ??= TextEditingController();
+    _model.projectTextFieldTextController ??=
+        TextEditingController(text: widget.projectName);
     _model.projectTextFieldFocusNode ??= FocusNode();
 
     _model.plannedHoursTextFieldTextController ??= TextEditingController();
@@ -303,7 +304,7 @@ class _AddTaskComponentWidgetState extends State<AddTaskComponentWidget> {
                             readOnly: true,
                             obscureText: false,
                             decoration: InputDecoration(
-                              labelText: widget.projectName,
+                              labelText: FFAppConstants.projectName,
                               labelStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
@@ -345,6 +346,9 @@ class _AddTaskComponentWidgetState extends State<AddTaskComponentWidget> {
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
+                              filled: true,
+                              fillColor: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
                               contentPadding: const EdgeInsets.all(20.0),
                             ),
                             style: FlutterFlowTheme.of(context)
@@ -396,10 +400,7 @@ class _AddTaskComponentWidgetState extends State<AddTaskComponentWidget> {
                         ),
                         FlutterFlowDropDown<String>(
                           controller: _model.taskTypeDropDownValueController ??=
-                              FormFieldController<String>(
-                            _model.taskTypeDropDownValue ??=
-                                FFAppState().TaskType.first,
-                          ),
+                              FormFieldController<String>(null),
                           options: FFAppState().TaskType,
                           onChanged: (val) => setState(
                               () => _model.taskTypeDropDownValue = val),
@@ -431,10 +432,7 @@ class _AddTaskComponentWidgetState extends State<AddTaskComponentWidget> {
                         ),
                         FlutterFlowDropDown<String>(
                           controller: _model.statusDropDownValueController ??=
-                              FormFieldController<String>(
-                            _model.statusDropDownValue ??=
-                                FFAppState().TaskStatus.first,
-                          ),
+                              FormFieldController<String>(null),
                           options: FFAppState().TaskStatus,
                           onChanged: (val) =>
                               setState(() => _model.statusDropDownValue = val),

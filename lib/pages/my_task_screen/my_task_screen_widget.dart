@@ -1,4 +1,3 @@
-import '/backend/api_requests/api_calls.dart';
 import '/components/add_task_component/add_task_component_widget.dart';
 import '/components/custom_drawer_component/custom_drawer_component_widget.dart';
 import '/components/task_tile/task_tile_widget.dart';
@@ -6,10 +5,10 @@ import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/actions/actions.dart' as action_blocks;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:lottie/lottie.dart';
-import 'package:provider/provider.dart';
 import 'my_task_screen_model.dart';
 export 'my_task_screen_model.dart';
 
@@ -50,8 +49,6 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -61,16 +58,32 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
         backgroundColor: FlutterFlowTheme.of(context).backgroundColor,
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            await FetchSectionCall.call(
-              authToken: FFAppState().userToken,
-              projectId: _model.myTaskList
-                  .where((e) =>
-                      e.projects.projectName == _model.projectListDropDownValue)
-                  .toList()
-                  .first
-                  .id,
-            );
-
+            await Future.wait([
+              Future(() async {
+                await action_blocks.fetchSections(
+                  context,
+                  id: _model.myTaskList
+                      .where((e) =>
+                          e.projects.projectName ==
+                          _model.projectListDropDownValue)
+                      .toList()
+                      .first
+                      .projectId,
+                );
+              }),
+              Future(() async {
+                await action_blocks.fetchProjectById(
+                  context,
+                  id: _model.myTaskList
+                      .where((e) =>
+                          e.projects.projectName ==
+                          _model.projectListDropDownValue)
+                      .toList()
+                      .first
+                      .projectId,
+                );
+              }),
+            ]);
             await showModalBottomSheet(
               isScrollControlled: true,
               backgroundColor: Colors.transparent,
@@ -107,7 +120,7 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
               },
             ).then((value) => safeSetState(() {}));
           },
-          backgroundColor: FlutterFlowTheme.of(context).primary,
+          backgroundColor: FlutterFlowTheme.of(context).pinkColor,
           elevation: 8.0,
           child: Icon(
             Icons.add,
