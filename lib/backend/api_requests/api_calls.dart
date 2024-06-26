@@ -403,6 +403,56 @@ class FetchMyTaskCall {
       ) as List?;
 }
 
+class FetchSectionCall {
+  static Future<ApiCallResponse> call({
+    String? authToken = '',
+    int? pageNumber,
+    int? pageSize,
+    String? search = '',
+    int? projectId,
+    String? orderBy = 'name',
+    String? order = 'ASC',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Fetch Section',
+      apiUrl: 'http://3.144.249.140:5000/api/section',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': '$authToken',
+      },
+      params: {
+        'pageNumber': pageNumber,
+        'pageSize': pageSize,
+        'search': search,
+        'projectId': projectId,
+        'orderBy': orderBy,
+        'order': order,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List? sectionDetail(dynamic response) => getJsonField(
+        response,
+        r'''$.data.rows''',
+        true,
+      ) as List?;
+  static List<String>? sectionName(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.rows[:].name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

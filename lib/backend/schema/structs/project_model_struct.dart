@@ -112,7 +112,7 @@ class ProjectModelStruct extends BaseStruct {
   set clients(ClientsModelStruct? val) => _clients = val;
 
   void updateClients(Function(ClientsModelStruct) updateFn) {
-    updateFn(clients ??= ClientsModelStruct());
+    updateFn(_clients ??= ClientsModelStruct());
   }
 
   bool hasClients() => _clients != null;
@@ -124,7 +124,7 @@ class ProjectModelStruct extends BaseStruct {
   set projectmember(ProjectMemberModelStruct? val) => _projectmember = val;
 
   void updateProjectmember(Function(ProjectMemberModelStruct) updateFn) {
-    updateFn(projectmember ??= ProjectMemberModelStruct());
+    updateFn(_projectmember ??= ProjectMemberModelStruct());
   }
 
   bool hasProjectmember() => _projectmember != null;

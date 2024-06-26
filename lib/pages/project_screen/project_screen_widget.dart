@@ -388,7 +388,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                       selected,
                                                       onSelectChanged) =>
                                                   DataRow(
-                                                color: MaterialStateProperty
+                                                color: WidgetStateProperty
                                                     .all(FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryBackground),
@@ -646,7 +646,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                       selected,
                                                       onSelectChanged) =>
                                                   DataRow(
-                                                color: MaterialStateProperty
+                                                color: WidgetStateProperty
                                                     .all(FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryBackground),
@@ -904,7 +904,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                       selected,
                                                       onSelectChanged) =>
                                                   DataRow(
-                                                color: MaterialStateProperty
+                                                color: WidgetStateProperty
                                                     .all(FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryBackground),

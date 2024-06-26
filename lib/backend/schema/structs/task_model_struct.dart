@@ -170,7 +170,7 @@ class TaskModelStruct extends BaseStruct {
   set user(UserModelStruct? val) => _user = val;
 
   void updateUser(Function(UserModelStruct) updateFn) {
-    updateFn(user ??= UserModelStruct());
+    updateFn(_user ??= UserModelStruct());
   }
 
   bool hasUser() => _user != null;
@@ -191,7 +191,7 @@ class TaskModelStruct extends BaseStruct {
   set projects(ProjectModelStruct? val) => _projects = val;
 
   void updateProjects(Function(ProjectModelStruct) updateFn) {
-    updateFn(projects ??= ProjectModelStruct());
+    updateFn(_projects ??= ProjectModelStruct());
   }
 
   bool hasProjects() => _projects != null;

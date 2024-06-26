@@ -1,12 +1,16 @@
+import '/backend/api_requests/api_calls.dart';
+import '/components/add_task_component/add_task_component_widget.dart';
 import '/components/custom_drawer_component/custom_drawer_component_widget.dart';
 import '/components/task_tile/task_tile_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/actions/actions.dart' as action_blocks;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 import 'my_task_screen_model.dart';
 export 'my_task_screen_model.dart';
 
@@ -47,6 +51,8 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -54,6 +60,62 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).backgroundColor,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () async {
+            await FetchSectionCall.call(
+              authToken: FFAppState().userToken,
+              projectId: _model.myTaskList
+                  .where((e) =>
+                      e.projects.projectName == _model.projectListDropDownValue)
+                  .toList()
+                  .first
+                  .id,
+            );
+
+            await showModalBottomSheet(
+              isScrollControlled: true,
+              backgroundColor: Colors.transparent,
+              isDismissible: false,
+              enableDrag: false,
+              context: context,
+              builder: (context) {
+                return GestureDetector(
+                  onTap: () => _model.unfocusNode.canRequestFocus
+                      ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                      : FocusScope.of(context).unfocus(),
+                  child: Padding(
+                    padding: MediaQuery.viewInsetsOf(context),
+                    child: AddTaskComponentWidget(
+                      projectId: _model.myTaskList
+                          .where((e) =>
+                              e.projects.projectName ==
+                              _model.projectListDropDownValue)
+                          .toList()
+                          .first
+                          .projects
+                          .id,
+                      projectName: _model.myTaskList
+                          .where((e) =>
+                              e.projects.projectName ==
+                              _model.projectListDropDownValue)
+                          .toList()
+                          .first
+                          .projects
+                          .projectName,
+                    ),
+                  ),
+                );
+              },
+            ).then((value) => safeSetState(() {}));
+          },
+          backgroundColor: FlutterFlowTheme.of(context).pinkColor,
+          elevation: 8.0,
+          child: Icon(
+            Icons.add,
+            color: FlutterFlowTheme.of(context).info,
+            size: 24.0,
+          ),
+        ),
         drawer: Drawer(
           elevation: 16.0,
           child: wrapWithModel(
@@ -145,8 +207,20 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                                         .unique((e) => e.projects.projectName)
                                         .map((e) => e.projects.projectName)
                                         .toList(),
-                                    onChanged: (val) => setState(() =>
-                                        _model.projectListDropDownValue = val),
+                                    onChanged: (val) async {
+                                      setState(() => _model
+                                          .projectListDropDownValue = val);
+                                      await action_blocks.fetchSections(
+                                        context,
+                                        id: _model.myTaskList
+                                            .where((e) =>
+                                                e.projects.projectName ==
+                                                _model.projectListDropDownValue)
+                                            .toList()
+                                            .first
+                                            .projectId,
+                                      );
+                                    },
                                     width: 300.0,
                                     height: 48.0,
                                     textStyle: FlutterFlowTheme.of(context)

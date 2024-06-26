@@ -105,7 +105,7 @@ class ProjectMemberModelStruct extends BaseStruct {
   set projectRoles(ProjectRolesModelStruct? val) => _projectRoles = val;
 
   void updateProjectRoles(Function(ProjectRolesModelStruct) updateFn) {
-    updateFn(projectRoles ??= ProjectRolesModelStruct());
+    updateFn(_projectRoles ??= ProjectRolesModelStruct());
   }
 
   bool hasProjectRoles() => _projectRoles != null;
@@ -123,7 +123,7 @@ class ProjectMemberModelStruct extends BaseStruct {
   set user(UserModelStruct? val) => _user = val;
 
   void updateUser(Function(UserModelStruct) updateFn) {
-    updateFn(user ??= UserModelStruct());
+    updateFn(_user ??= UserModelStruct());
   }
 
   bool hasUser() => _user != null;

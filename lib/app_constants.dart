@@ -26,4 +26,15 @@ abstract class FFAppConstants {
   static const String excessHours = 'Allow Excess Hours';
   static const String manualTask = 'Allow Manual Task Entry';
   static const String save = 'Save';
+  static const String addTask = 'Create a New Task';
+  static const String taskName = 'Task Name';
+  static const String section = 'Section';
+  static const String taskType = 'Task Type';
+  static const String status = 'Status';
+  static const String planned = 'Planned Hours';
+  static const String startDate = 'Start Date';
+  static const String endDate = 'End Date';
+  static const String description = 'Description';
+  static const String addTaskBtn = 'Add Task';
+  static const String updateTask = 'Update Task';
 }
