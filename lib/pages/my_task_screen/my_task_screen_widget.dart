@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/actions/actions.dart' as action_blocks;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:lottie/lottie.dart';
@@ -108,7 +107,7 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
               },
             ).then((value) => safeSetState(() {}));
           },
-          backgroundColor: FlutterFlowTheme.of(context).pinkColor,
+          backgroundColor: FlutterFlowTheme.of(context).primary,
           elevation: 8.0,
           child: Icon(
             Icons.add,
@@ -207,20 +206,8 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                                         .unique((e) => e.projects.projectName)
                                         .map((e) => e.projects.projectName)
                                         .toList(),
-                                    onChanged: (val) async {
-                                      setState(() => _model
-                                          .projectListDropDownValue = val);
-                                      await action_blocks.fetchSections(
-                                        context,
-                                        id: _model.myTaskList
-                                            .where((e) =>
-                                                e.projects.projectName ==
-                                                _model.projectListDropDownValue)
-                                            .toList()
-                                            .first
-                                            .projectId,
-                                      );
-                                    },
+                                    onChanged: (val) => setState(() =>
+                                        _model.projectListDropDownValue = val),
                                     width: 300.0,
                                     height: 48.0,
                                     textStyle: FlutterFlowTheme.of(context)
