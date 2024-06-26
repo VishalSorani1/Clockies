@@ -333,7 +333,6 @@ class FetchMyTasksCall {
     String? search = '',
     String? order = '',
     String? orderBy = '',
-    int? projectId,
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'Fetch My Tasks',
@@ -343,12 +342,11 @@ class FetchMyTasksCall {
         'Authorization': '$authToken',
       },
       params: {
-        'projectId': projectId,
-        'orderBy': orderBy,
-        'order': order,
-        'search': search,
-        'pageSize': pageSize,
         'pageNumber': pageNumber,
+        'pageSize': pageSize,
+        'search': search,
+        'order': order,
+        'orderBy': orderBy,
       },
       returnBody: true,
       encodeBodyUtf8: false,
@@ -364,6 +362,95 @@ class FetchMyTasksCall {
         r'''$.data.rows''',
         true,
       ) as List?;
+}
+
+class FetchMyTaskCall {
+  static Future<ApiCallResponse> call({
+    String? authToken = '',
+    int? pageNumber,
+    int? pageSize,
+    String? search = '',
+    String? order = '',
+    String? orderBy = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Fetch My Task',
+      apiUrl: 'http://3.144.249.140:5000/api/task/myTask',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': '$authToken',
+      },
+      params: {
+        'pageNumber': pageNumber,
+        'pageSize': pageSize,
+        'search': search,
+        'order': order,
+        'orderBy': orderBy,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List? taskList(dynamic response) => getJsonField(
+        response,
+        r'''$.data.rows''',
+        true,
+      ) as List?;
+}
+
+class FetchSectionCall {
+  static Future<ApiCallResponse> call({
+    String? authToken = '',
+    int? pageNumber,
+    int? pageSize,
+    String? search = '',
+    int? projectId,
+    String? orderBy = 'name',
+    String? order = 'ASC',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Fetch Section',
+      apiUrl: 'http://3.144.249.140:5000/api/section',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': '$authToken',
+      },
+      params: {
+        'pageNumber': pageNumber,
+        'pageSize': pageSize,
+        'search': search,
+        'projectId': projectId,
+        'orderBy': orderBy,
+        'order': order,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List? sectionDetail(dynamic response) => getJsonField(
+        response,
+        r'''$.data.rows''',
+        true,
+      ) as List?;
+  static List<String>? sectionName(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.rows[:].name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class ApiPagingParams {

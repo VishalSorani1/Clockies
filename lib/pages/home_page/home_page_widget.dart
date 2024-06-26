@@ -191,7 +191,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       .titleMedium
                                                       .override(
                                                         fontFamily: 'Inter',
-                                                        fontSize: 16.0,
+                                                        fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,

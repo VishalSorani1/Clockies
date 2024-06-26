@@ -103,7 +103,7 @@ class UserModelStruct extends BaseStruct {
   set permissions(List<String>? val) => _permissions = val;
 
   void updatePermissions(Function(List<String>) updateFn) {
-    updateFn(permissions ??= []);
+    updateFn(_permissions ??= []);
   }
 
   bool hasPermissions() => _permissions != null;

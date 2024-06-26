@@ -1,3 +1,4 @@
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +6,12 @@ import 'task_tile_model.dart';
 export 'task_tile_model.dart';
 
 class TaskTileWidget extends StatefulWidget {
-  const TaskTileWidget({super.key});
+  const TaskTileWidget({
+    super.key,
+    required this.myTaskDetail,
+  });
+
+  final TaskModelStruct? myTaskDetail;
 
   @override
   State<TaskTileWidget> createState() => _TaskTileWidgetState();
@@ -49,22 +55,23 @@ class _TaskTileWidgetState extends State<TaskTileWidget> {
           children: [
             Flexible(
               child: Text(
-                'Task Name Task Name Task Name Task Name Task Name vTask NameTask Name Task Namev Task NameTask Name',
+                widget.myTaskDetail!.taskName,
                 maxLines: 2,
                 style: FlutterFlowTheme.of(context).titleMedium.override(
                       fontFamily: 'Inter',
                       color: FlutterFlowTheme.of(context).textGreyColor,
-                      fontSize: 16.0,
+                      fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
                     ),
               ),
             ),
             Text(
-              'status',
+              widget.myTaskDetail!.status,
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Inter',
                     color: FlutterFlowTheme.of(context).blueColor,
+                    fontSize: 12.0,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w500,
                   ),
